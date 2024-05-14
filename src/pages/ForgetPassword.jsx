@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import InputField from '../components/Login/InputField';
 import CustomButton from '../components/Login/CustomButton';
 import { Link, useNavigate } from 'react-router-dom';
-import logo from './Logo.svg.svg'; // Ensure the path to your logo file is correct
+import { IMAGES } from '../constants/images';
 function ForgetPassword() {
   const [email, setEmail] = useState("");
 
@@ -18,7 +18,7 @@ function ForgetPassword() {
       {/* Navbar with Links */}
       <div className="flex justify-between items-center p-4 w-full bg-transparent">
         <Link>
-          <img src={logo} alt="Company Logo" className="h-10 w-auto" />
+          <img src={IMAGES} alt="Company Logo" className="h-10 w-auto" />
         </Link>
         <Link to="/login">
           <CustomButton title="Sign In" />

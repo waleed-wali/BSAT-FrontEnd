@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import InputField from '../components/Login/InputField';
 import CustomButton from '../components/Login/CustomButton';
 import { Link, useNavigate } from 'react-router-dom';
-import GLogo from './GLogo.svg.svg';
-import logo from './Logo.svg.svg'; // Make sure the path to your logo file is correct
-
+import { IMAGES } from '../constants/images';
 function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,7 +23,7 @@ function SignUp() {
       {/* Navbar-like top bar with Links */}
       <div className="flex justify-between items-center p-4 w-full bg-transparent">
         <Link >
-          <img src={logo} alt="Company Logo" className="h-10 w-auto" />
+          <img src={IMAGES} alt="Company Logo" className="h-10 w-auto" />
         </Link>
         <Link to="/login">
           <CustomButton title="Sign In" />
@@ -47,7 +45,7 @@ function SignUp() {
               type="button"
               className="w-full p-2 bg-white text-teal-500 border border-teal-500 rounded hover:bg-gray-100 flex justify-center items-center"
             >
-              <img src={GLogo} alt="Google sign-in" className="h-6 w-6 mr-4" />
+              <img src={IMAGES} alt="Google sign-in" className="h-6 w-6 mr-4" />
               Login with Google
             </button>
           </div>

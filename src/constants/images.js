@@ -1,4 +1,26 @@
 export const IMAGES={ 
     dashboard : new URL ( "../assets/dashboard.svg", import.meta.url).href,
-    audit : new URL ( "../assets/.svg", import.meta.url).href,
+    Audit : new URL ( "../assets/Audit.svg", import.meta.url).href,
+    Analytics : new URL ( "../assets/Analytics.svg", import.meta.url).href,
+    blog : new URL ( "../assets/blog.svg", import.meta.url).href,
+    ccreation : new URL ( "../assets/ccreation.svg", import.meta.url).href,
+    citation : new URL ( "../assets/citation.svg", import.meta.url).href,
+    contentc : new URL ( "../assets/contentc.svg", import.meta.url).href,
+    csuggestion : new URL ( "../assets/csuggestion.svg", import.meta.url).href,
+    GLogo : new URL ( "../assets/GLogo.svg.svg", import.meta.url).href,
+    KeyResearch : new URL ( "../assets/KeyResearch.svg", import.meta.url).href,
+    keyword : new URL ( "../assets/keyword.svg", import.meta.url).href,
+    logo : new URL ( "../assets/Logo.svg.svg", import.meta.url).href,
+    profile : new URL ( "../assets/profile.svg", import.meta.url).href,
+    settin : new URL ( "../assets/settin.svg", import.meta.url).href,
+    setting : new URL ( "../assets/setting.svg", import.meta.url).href,
+    Vectorlogout : new URL ( "../assets/Vectorlogout.svg", import.meta.url).href,
+    WebAdt : new URL ( "../assets/WebAdt.svg", import.meta.url).href,
+    WEBANA : new URL ( "../assets/WEBANA.svg", import.meta.url).href,
+    Bell : new URL ( "../assets/Bell.png", import.meta.url).href,
+    burger : new URL ( "../assets/burger.png", import.meta.url).href,
+    Profile : new URL ( "../assets/Profile.png", import.meta.url).href,
+    Setting : new URL ( "../assets/Setting.png", import.meta.url).href,
+
+
   }
