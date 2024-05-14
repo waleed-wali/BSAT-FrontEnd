@@ -9,7 +9,7 @@ import SignUp from './pages/SignUp.jsx'
 import ForgetPassword from './pages/ForgetPassword.jsx'
 import Dashboard from './pages/Dashboard.jsx'
 
-const router = createBrowserRouter([
+const router = createBrowserRouter([ 
   {
     path:"/",
     element:<Layout />,
