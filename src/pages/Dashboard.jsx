@@ -112,12 +112,6 @@ function Dashboard() {
                                       
                 </div>
                 {getContent()}
-                
-
-
-
-
-
 
             </div>
 

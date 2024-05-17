@@ -14,11 +14,11 @@ function ForgetPassword() {
   }
 
   return (
-    <div className="flex flex-col h-screen bg-[linear-gradient(170deg,_#38B2AC,#2f3d40_50%,_#FFFFFF_50%)]">
+     <div className="flex flex-col h-screen bg-[linear-gradient(170deg,_#38B2AC,#2f3d40_50%,_#FFFFFF_50%)]">
       {/* Navbar with Links */}
       <div className="flex justify-between items-center p-4 w-full bg-transparent">
         <Link>
-          <img src={IMAGES} alt="Company Logo" className="h-10 w-auto" />
+          <img src={IMAGES.logo} alt="Company Logo" className="h-10 w-auto" />
         </Link>
         <Link to="/login">
           <CustomButton title="Sign In" />
@@ -39,7 +39,7 @@ function ForgetPassword() {
           <p className="mt-6 text-xs text-center text-gray-400">© 2021 - 2024 All Rights Reserved. Company</p>
         </div>
       </div>
-    </div>
+     </div>
   );
 }
 

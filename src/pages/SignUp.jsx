@@ -23,7 +23,7 @@ function SignUp() {
       {/* Navbar-like top bar with Links */}
       <div className="flex justify-between items-center p-4 w-full bg-transparent">
         <Link >
-          <img src={IMAGES} alt="Company Logo" className="h-10 w-auto" />
+          <img src={IMAGES.logo} alt="Company Logo" className="h-10 w-auto" />
         </Link>
         <Link to="/login">
           <CustomButton title="Sign In" />
@@ -45,7 +45,7 @@ function SignUp() {
               type="button"
               className="w-full p-2 bg-white text-teal-500 border border-teal-500 rounded hover:bg-gray-100 flex justify-center items-center"
             >
-              <img src={IMAGES} alt="Google sign-in" className="h-6 w-6 mr-4" />
+              <img src={IMAGES.GLogo} alt="Google sign-in" className="h-6 w-6 mr-4" />
               Login with Google
             </button>
           </div>
