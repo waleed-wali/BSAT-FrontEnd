@@ -21,6 +21,6 @@ export const IMAGES={
     burger : new URL ( "../assets/burger.png", import.meta.url).href,
     Profile : new URL ( "../assets/Profile.png", import.meta.url).href,
     Setting : new URL ( "../assets/Setting.png", import.meta.url).href,
-
+    Mainimage : new URL ( "../assets/Mainimage.png", import.meta.url).href,
 
   }
