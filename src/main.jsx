@@ -10,6 +10,7 @@ import ForgetPassword from './pages/ForgetPassword.jsx'
 import Dashboard from './pages/Dashboard.jsx'
 // import Homepage from './pages/Homepage.jsx'
 import Home from './pages/Home.jsx'
+import Admin from './pages/Admin.jsx'
 
 const router = createBrowserRouter([ 
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
   {
     path: "/Home",
     element:<Home/>
+  },
+  {
+    path: "/Admin",
+    element:<Admin/>
   }
 ])
 
