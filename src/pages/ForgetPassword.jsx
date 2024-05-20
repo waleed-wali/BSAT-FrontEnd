@@ -14,7 +14,7 @@ function ForgetPassword() {
   }
 
   return (
-     <div className="flex flex-col h-screen bg-[linear-gradient(170deg,_#38B2AC,#2f3d40_50%,_#FFFFFF_50%)]">
+     <div className="flex flex-col h-screen bg-[linear-gradient(170deg,_#008080,#353438_50%,_#FFFFFF_50%)]">
       {/* Navbar with Links */}
       <div className="flex justify-between items-center p-4 w-full bg-transparent">
         <Link>

@@ -8,12 +8,13 @@ import Layout from './layouts/Layout.jsx'
 import SignUp from './pages/SignUp.jsx'
 import ForgetPassword from './pages/ForgetPassword.jsx'
 import Dashboard from './pages/Dashboard.jsx'
-import Homepage from './pages/Homepage.jsx'
+// import Homepage from './pages/Homepage.jsx'
+import Home from './pages/Home.jsx'
 
 const router = createBrowserRouter([ 
   {
     path:"/",
-    element:<Layout />,
+    element:<Home/>,
     errorElement:<div>Error! 404 </div>,
     children:[
       {
@@ -40,8 +41,8 @@ const router = createBrowserRouter([
     element:<Dashboard/>
   },
   {
-    path: "/Homepage",
-    element:<Homepage/>
+    path: "/Home",
+    element:<Home/>
   }
 ])
 

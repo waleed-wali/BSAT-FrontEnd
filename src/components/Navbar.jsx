@@ -1,31 +1,34 @@
-import React from 'react';
-import { IMAGES } from '../constants/images';
-import { Link } from 'react-router-dom'; // If you are using React Router for navigation
+import { Link, useNavigate } from 'react-router-dom';
+const Navbar = ()=>{
 
-const Navbar = () => {
-  return (
-    <nav className="bg-white shadow-md">
-      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-        <div className="flex items-center">
-          <img src={IMAGES.logo} alt="Logo" className="h-8 w-8 mr-3" />
-          <span className="text-xl font-bold text-gray-800">BSAT</span>
+    const scrollToSection = (sectionId) => {
+        const section = document.getElementById(sectionId);
+        section.scrollIntoView({ behavior: 'smooth' });
+      };
+
+    return(
+        <div className="container flex flex-row mx-auto max-w-screen-lg py-4 mt-5">
+            <div className="container flex flex-1 items-center">
+                <p className="text-2xl font-bold">BSAT</p>
+            </div>
+            <div className="container flex items-center justify-between flex-1 mr-4">
+                <button className="text-sm font-bold mr-4 h-full px-4 hover:bg-custom hover:text-white transform-all duration-200">Home</button>
+                <button className="text-sm font-bold mr-4 h-full px-4 hover:bg-custom hover:text-white transform-all duration-200" onClick={() => scrollToSection('section1')}>Service</button>
+                <button className="text-sm font-bold mr-4 h-full px-4 hover:bg-custom hover:text-white transform-all duration-200" onClick={() => scrollToSection('section2')}>Contact</button>
+                <button className="text-sm font-bold h-full px-4 hover:bg-custom hover:text-white transform-all duration-200" onClick={() => scrollToSection('section2')}>Help</button>
+            </div>
+
+            <div className="container flex flex-row-reverse flex-1 items-center">
+                <button className="font-medium text-white bg-custom transform-all duration-200 py-3 w-40 rounded-sm hover:opacity-40" >Get Started</button>
+                <button className="font-medium text-custom py-3 w-20 hover:underline"><Link to="/login"> Sign in
+          
+        </Link></button>
+                
+            </div>
+            
+
         </div>
-        <div className="hidden md:flex space-x-6">
-          <Link to="/" className="text-gray-800 hover:text-blue-500">Home</Link>
-          <Link to="/about" className="text-gray-800 hover:text-blue-500">About</Link>
-          <Link to="/services" className="text-gray-800 hover:text-blue-500">Services</Link>
-          <Link to="/contact" className="text-gray-800 hover:text-blue-500">Contact</Link>
-        </div>
-        <div className="md:hidden flex items-center">
-          <button className="text-gray-800 focus:outline-none">
-            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </nav>
-  );
-};
+    )
+}
 
 export default Navbar;

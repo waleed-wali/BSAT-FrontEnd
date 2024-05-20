@@ -23,4 +23,30 @@ export const IMAGES={
     Setting : new URL ( "../assets/Setting.png", import.meta.url).href,
     Mainimage : new URL ( "../assets/Mainimage.png", import.meta.url).href,
 
+    envelopeIcon: new URL("../assets/email.svg", import.meta.url).href,
+  coverimg: new URL("../assets/mainimg.png", import.meta.url).href,
+  servicesimg: new URL("../assets/servicesimg.png", import.meta.url).href,
+  keyres: new URL("../assets/keyres.png", import.meta.url).href,
+  citsug: new URL("../assets/citsug.png", import.meta.url).href,
+  webana: new URL("../assets/webana.png", import.meta.url).href,
+  webaud: new URL("../assets/webaud.png", import.meta.url).href,
+  directorimg: new URL("../assets/directorimg.png", import.meta.url).href,
+  analystimg: new URL("../assets/analystimg.png", import.meta.url).href,
+  attorneyimg: new URL("../assets/attorneyimg.png", import.meta.url).href,
+  getstarted: new URL("../assets/getstarted.png", import.meta.url).href,
+  group1: new URL("../assets/group1.svg", import.meta.url).href,
+  group2: new URL("../assets/group2.svg", import.meta.url).href,
+  group3: new URL("../assets/group3.svg", import.meta.url).href,
+  group4: new URL("../assets/group4.svg", import.meta.url).href,
+  group5: new URL("../assets/group5.svg", import.meta.url).href,
+  group6: new URL("../assets/group6.svg", import.meta.url).href,
+  arrowright: new URL("../assets/arrowright.svg", import.meta.url).href,
+  hat: new URL("../assets/hat.svg", import.meta.url).href,
+  shield: new URL("../assets/shield.svg", import.meta.url).href,
+  apps: new URL("../assets/apps.svg", import.meta.url).href,
+  facebook: new URL("../assets/facebook.svg", import.meta.url).href,
+  twitter: new URL("../assets/twitter.svg", import.meta.url).href,
+  instagram: new URL("../assets/instagram.svg", import.meta.url).href
+
+
   }
