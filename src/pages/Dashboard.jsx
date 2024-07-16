@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { IMAGES } from '../constants/images';
 
+
+
 function Dashboard() {
     const [activeTab, setActiveTab] = useState('dashboard');
     const [profilePic, setProfilePic] = useState(IMAGES.profilePic);
@@ -11,6 +13,26 @@ function Dashboard() {
     const [currentPassword, setCurrentPassword] = useState("");
     const [newPassword, setNewPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [keyword, setKeyword] = useState('');
+    const [productName, setProductName] = useState('');
+    const [productDescription, setProductDescription] = useState('');
+    const [productImage, setProductImage] = useState(null);
+
+    const handleAnalyze = () => {
+        // Analyze logic
+      };
+    const handleImageUpload = (event) => {
+    setProductImage(URL.createObjectURL(event.target.files[0]));
+  };
+
+    const handleGenerateAd = () => {
+        // Logic to generate ad goes here
+        console.log('Generating ad for:', {
+          productName,
+          productDescription,
+          productImage,
+        });
+      };
 
     const handleLogout = () => {
         console.log("Logging out..."); // Implement your logout logic here
@@ -31,6 +53,8 @@ function Dashboard() {
         setProfilePic(IMAGES.defaultProfilePic); // Assuming you have a default profile picture
     };
 
+    
+     
     const getContent = () => {
         switch (activeTab) {
             case 'dashboard':
@@ -40,28 +64,40 @@ function Dashboard() {
                         <div className="text-m text-gray-600 text-center mb-6">Rely on seasoned professionals for tailored SEO advice and strategic planning aligned with your unique goals</div>
                         <div className="grid grid-cols-3 gap-3">
                             <div className="bg-white shadow-md rounded-lg flex flex-col items-center justify-center p-6 hover:bg-gray-100 transition ease-in duration-200">
-                                <img src={IMAGES.keyword} alt="Keyword Research" className="h-24 w-24 mb-6" />
-                                <span className="text-lg text-gray-700">Keyword Research</span>
+                                <img src={IMAGES.Profiling} alt="profiling" className="h-24 w-24 mb-6" />
+                                <span className="text-lg text-gray-700">PROFILE</span>
                             </div>
                             <div className="bg-white shadow-md rounded-lg flex flex-col items-center justify-center p-6 hover:bg-gray-100 transition ease-in duration-200">
                                 <img src={IMAGES.Audit} alt="Audit Report" className="h-24 w-24 mb-6" />
-                                <span className="text-lg text-gray-700">Audit Report</span>
+                                <span className="text-lg text-gray-700">AUDIT REPORT</span>
                             </div>
                             <div className="bg-white shadow-md rounded-lg flex flex-col items-center justify-center p-6 hover:bg-gray-100 transition ease-in duration-200">
-                                <img src={IMAGES.citation} alt="Citation Suggestions" className="h-24 w-24 mb-6" />
-                                <span className="text-lg text-gray-700">Citation Suggestions</span>
+                                <img src={IMAGES.citation} alt="Ads generation" className="h-24 w-24 mb-6" />
+                                <span className="text-lg text-gray-700">ADS GENERATION</span>
                             </div>
                             <div className="bg-white shadow-md rounded-lg flex flex-col items-center justify-center p-6 hover:bg-gray-100 transition ease-in duration-200">
                                 <img src={IMAGES.contentc} alt="Content Ideas" className="h-24 w-24 mb-6" />
-                                <span className="text-lg text-gray-700">Content Ideas</span>
+                                <span className="text-lg text-gray-700">CONTENT IDEAS</span>
                             </div>
                             <div className="bg-white shadow-md rounded-lg flex flex-col items-center justify-center p-6 hover:bg-gray-100 transition ease-in duration-200">
                                 <img src={IMAGES.Analytics} alt="Analytics" className="h-24 w-24 mb-6" />
-                                <span className="text-lg text-gray-700">Analytics</span>
+                                <span className="text-lg text-gray-700">KEYWORD ANALYTICS</span>
+                            </div>
+                            <div className="bg-white shadow-md rounded-lg flex flex-col items-center justify-center p-6 hover:bg-gray-100 transition ease-in duration-200">
+                                <img src={IMAGES.competitor} alt="competitor" className="h-24 w-24 mb-6" />
+                                <span className="text-lg text-gray-700">COMPETITORS ANALYSIS</span>
+                            </div>
+                            <div className="bg-white shadow-md rounded-lg flex flex-col items-center justify-center p-6 hover:bg-gray-100 transition ease-in duration-200">
+                                <img src={IMAGES.Article} alt="Article" className="h-24 w-24 mb-6" />
+                                <span className="text-lg text-gray-700">ARTICLE WRITING</span>
+                            </div>
+                            <div className="bg-white shadow-md rounded-lg flex flex-col items-center justify-center p-6 hover:bg-gray-100 transition ease-in duration-200">
+                                <img src={IMAGES.keyword} alt="Keyword Research" className="h-24 w-24 mb-6" />
+                                <span className="text-lg text-gray-700">KEYWORD RESEARCH</span>
                             </div>
                             <div className="bg-white shadow-md rounded-lg flex flex-col items-center justify-center p-6 hover:bg-gray-100 transition ease-in duration-200">
                                 <img src={IMAGES.setting} alt="Settings" className="h-24 w-24 mb-6" />
-                                <span className="text-lg text-gray-700">Settings</span>
+                                <span className="text-lg text-gray-700">SETTINGS</span>
                             </div>
                         </div>
                     </div>
@@ -122,6 +158,7 @@ function Dashboard() {
                         </div>
                     </div>
                 );
+
 
                 case 'keywordresearch':
                     return (
@@ -224,6 +261,113 @@ function Dashboard() {
                             </table>
                         </div>
                     );
+
+                    case 'blogs':
+                        return(
+                            <div>
+                                d
+                            </div>
+                        );
+
+
+                        case 'keywordanalytics' :
+                            return (
+                                <div className="flex-1 p-6 bg-white">
+                                  <h2 className="text-2xl font-semibold mb-4">Keyword Analytics</h2>
+                                  <div className="flex items-center space-x-4 mb-8">
+                                    <input
+                                      type="text"
+                                      value={keyword}
+                                      onChange={(e) => setKeyword(e.target.value)}
+                                      placeholder='Enter Keyword...'
+                                      className="w-200 px-3 py-2 border border-gray-300 rounded-md mb-5"
+                                    />
+                                    <div className="flex justify-right ml-4">
+                                    <button
+                                      onClick={handleAnalyze}
+                                      className="bg-teal-600 text-white py-2 px-4 rounded hover:bg-teal-700 transition duration-200 "
+                                    >
+                                      Analyze
+                                    </button>
+                                    </div>
+                                    
+                                  </div>
+                                  <div className="bg-white p-4 rounded shadow mb-8">
+                                    <h3 className="text-xl font-semibold mb-4">Dummy</h3>
+                                    
+                                    <div className="flex items-start space-x-8">
+                                      <div className="flex-1">
+                                        <img src={IMAGES.chart} alt="chart" className="w-full" />
+                                      </div>
+                                      <div className="w-64">
+                                        <h4 className="text-lg font-semibold mb-2">Top Keywords</h4>
+                                        <ul className="space-y-2">
+                                          {new Array(10).fill('Justin Septimus').map((name, index) => (
+                                            <li key={index} className="flex items-center p-2 bg-gray-100 rounded">
+                                              {name}
+                                            </li>
+                                          ))}
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="bg-white p-4 rounded shadow">
+                                    <h4 className="text-lg font-semibold mb-2">Best Articles</h4>
+                                    <ul className="space-y-2">
+                                      {[
+                                        { date: '2018/10/02 15:57:46', title: 'Deposit Japanese Yen' },
+                                        { date: '2018/10/02 15:57:46', title: 'Bought Bitcoin' }
+                                      ].map((article, index) => (
+                                        <li key={index} className="p-2 bg-gray-100 rounded">
+                                          <div className="text-sm text-gray-500">{article.date}</div>
+                                          <div className="font-semibold">{article.title}</div>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                </div>
+                              );
+
+
+                        case 'ADs generation':
+                            return(
+                            <div className="bg-white p-8 overflow-auto h-full">
+                                <h2 className="text-2xl font-bold mb-4">ADs Generation</h2>
+      <div className>
+        <input
+          type="text"
+          value={productName}
+          onChange={(e) => setProductName(e.target.value)}
+          placeholder="Product Name"
+          className="w-200 px-3 py-2 border border-gray-300 rounded-md mb-5"
+        />
+      </div>
+      <div className="mb-4">
+            <label className=" block text-sm font-medium text-gray-700 mb-2">Description</label>
+        <textarea
+          value={productDescription}
+          onChange={(e) => setProductDescription(e.target.value)}
+          placeholder='Describe your product in few lines'
+          className="w-full px-3 py-2 border border-gray-300 rounded-md h-35"
+        />
+      </div>
+      <div className="mb-4">
+        <label className="block text-sm font-medium text-gray-700 mb-2">Upload Product Image</label>
+        <input type="file" accept="image/*" onChange={handleImageUpload} className="block w-full text-sm text-black file:mr-4 file:py-2 file:px-4 file:rounded file:text-sm file:font-semibold file:bg-teal-600 file:text-white hover:file:bg-teal-700 transition duration-200"/>
+        {productImage && <img src={productImage} alt="Product Preview" className="mt-4 max-w-full h-auto"/>}
+      </div >
+      <div className= "flex justify-end">
+      <button
+        onClick={handleGenerateAd}
+        className="bg-teal-600 text-white py-2 px-4 rounded hover:bg-teal-700 transition duration-200 item right justify-right space-x-2 "
+      >
+        Generate Add
+      </button>
+      </div>
+      
+    </div>
+  );
+
                 default:
                     return <div className="text-center p-4">Select a content</div>;
                 }
@@ -236,19 +380,21 @@ function Dashboard() {
         <div className="flex min-h-screen bg-white">
             <div className="bg-teal-800 text-white w-64 space-y-6 py-7 px-2 flex flex-col justify-between">
                 <div>
-                    <a href="/" className="py-4 flex items-center space-x-2 px-4">
+                    <a href="/" className="py-2 flex items-center space-x-2 px-4">
                         <img src={IMAGES.logo} alt="Logo" className="h-8 w-8" />
                     </a>
                     <nav>
-                        <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 flex gap-4 text-sm items-left justify-left space-x-2 ${activeTab === 'dashboard' ? 'bg-gray-500  ' : ''}`} onClick={() => setActiveTab('dashboard')}><img src={IMAGES.dashboard} alt="Dashboard" className="h-5 w-5" />Dashboard</a>
-                        <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 flex gap-4 text-sm items-left justify-left space-x-2 ${activeTab === 'blogs' ? 'bg-gray-500 ' : ''}`} onClick={() => setActiveTab('blogs')}><img src={IMAGES.blog} alt="blog" className="h-5 w-5" />Blogs</a>
-                        <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 flex gap-4 text-sm items-left justify-left space-x-2 ${activeTab === 'profile' ? 'bg-gray-500 ' : ''}`} onClick={() => setActiveTab('profile')}><img src={IMAGES.profile} alt="profile" className="h-5 w-5" />Profile</a>
-                        <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 flex gap-4 text-sm items-left justify-left space-x-2 ${activeTab === 'keywordresearch' ? 'bg-gray-500 ' : ''}`} onClick={() => setActiveTab('keywordresearch')}><img src={IMAGES.KeyResearch} alt="Keyword Research" className="h-5 w-5" />Keyword Research</a>
-                        <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 flex gap-4 text-sm items-left justify-left space-x-2 ${activeTab === 'websiteaudit' ? 'bg-gray-500 ' : ''}`} onClick={() => setActiveTab('websiteaudit')}><img src={IMAGES.WebAdt} alt="web Audit" className="h-5 w-5" />Website Audit</a>
-                        <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 flex gap-4 text-sm items-left justify-left space-x-2 ${activeTab === 'contentcreationideas' ? 'bg-gray-500 ' : ''}`} onClick={() => setActiveTab('contentcreationideas')}><img src={IMAGES.ccreation} alt="content creation" className="h-5 w-5" />Content Creation Ideas</a>
-                        <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 flex gap-4 text-sm items-left justify-left space-x-2 ${activeTab === 'citationsuggestion' ? 'bg-gray-500 ' : ''}`} onClick={() => setActiveTab('citationsuggestion')}><img src={IMAGES.csuggestion} alt="citation suggestion" className="h-5 w-5" />Citation Suggestion</a>
-                        <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 flex gap-4 text-sm items-left justify-left space-x-2 ${activeTab === 'webanalytics' ? 'bg-gray-500 ' : ''}`} onClick={() => setActiveTab('webanalytics')}><img src={IMAGES.WEBANA} alt="Wab Analytics" className="h-5 w-5" />Web Analytics</a>
-                        <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 flex gap-4 text-sm items-left justify-left space-x-2 ${activeTab === 'settings' ? 'bg-gray-500 ' : ''}`} onClick={() => setActiveTab('settings')}><img src={IMAGES.settin} alt="Settings" className="h-5 w-5" />Settings</a>
+                        <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 flex gap-4 text-sm items-left justify-left space-x-2 ${activeTab === 'dashboard' ? 'bg-gray-500  ' : ''}`} onClick={() => setActiveTab('dashboard')}><img src={IMAGES.dashboard} alt="Dashboard" className="h-4 w-4" />Dashboard</a>
+                        <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 flex gap-4 text-sm items-left justify-left space-x-2 ${activeTab === 'blogs' ? 'bg-gray-500 ' : ''}`} onClick={() => setActiveTab('blogs')}><img src={IMAGES.blog} alt="blog" className="h-4 w-4" />Blogs</a>
+                        <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 flex gap-4 text-sm items-left justify-left space-x-2 ${activeTab === 'profile' ? 'bg-gray-500 ' : ''}`} onClick={() => setActiveTab('profile')}><img src={IMAGES.profile} alt="profile" className="h-4 w-4" />Profile</a>
+                        <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 flex gap-4 text-sm items-left justify-left space-x-2 ${activeTab === 'keywordresearch' ? 'bg-gray-500 ' : ''}`} onClick={() => setActiveTab('keywordresearch')}><img src={IMAGES.KeyResearch} alt="Keyword Research" className="h-4 w-4" />Keyword Research</a>
+                        <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 flex gap-4 text-sm items-left justify-left space-x-2 ${activeTab === 'websiteaudit' ? 'bg-gray-500 ' : ''}`} onClick={() => setActiveTab('websiteaudit')}><img src={IMAGES.WebAdt} alt="web Audit" className="h-4 w-4" />Website Audit</a>
+                        <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 flex gap-4 text-sm items-left justify-left space-x-2 ${activeTab === 'contentcreationideas' ? 'bg-gray-500 ' : ''}`} onClick={() => setActiveTab('contentcreationideas')}><img src={IMAGES.ccreation} alt="content creation" className="h-4 w-4" />Content Ideas</a>
+                        <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 flex gap-4 text-sm items-left justify-left space-x-2 ${activeTab === 'ADs generation' ? 'bg-gray-500 ' : ''}`} onClick={() => setActiveTab('ADs generation')}><img src={IMAGES.csuggestion} alt="ADs generation" className="h-4 w-4" />ADs Generation</a>
+                        <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 flex gap-4 text-sm items-left justify-left space-x-2 ${activeTab === 'keywordanalytics' ? 'bg-gray-500 ' : ''}`} onClick={() => setActiveTab('keywordanalytics')}><img src={IMAGES.WEBANA} alt="keyword Analytics" className="h-4 w-4" />Keyword Analytics</a>
+                        <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 flex gap-4 text-sm items-left justify-left space-x-2 ${activeTab === 'competitor' ? 'bg-gray-500 ' : ''}`} onClick={() => setActiveTab('competitor')}><img src={IMAGES.WEBANA} alt="Competitor" className="h-4 w-4" />Competitors Analysis</a>
+                        <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 flex gap-4 text-sm items-left justify-left space-x-2 ${activeTab === 'article' ? 'bg-gray-500 ' : ''}`} onClick={() => setActiveTab('article')}><img src={IMAGES.WEBANA} alt="Article" className="h-4 w-4" />Article Writing</a>
+                        <a href="#" className={`block py-2 px-4 rounded transition duration-200 flex gap-4 text-sm items-left justify-left space-x-2 ${activeTab === 'settings' ? 'bg-gray-500 ' : ''}`} onClick={() => setActiveTab('settings')}><img src={IMAGES.settin} alt="Settings" className="h-4 w-4" />Settings</a>
                     </nav>
                 </div>
                 <button onClick={handleLogout} className="bg-gray-500 hover:bg-gray-600 text-white py-2 px-4 rounded flex items-center space-x-2">
