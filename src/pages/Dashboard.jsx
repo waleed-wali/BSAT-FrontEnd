@@ -19,16 +19,18 @@ function Dashboard() {
     const [productDescription, setProductDescription] = useState('');
     const [productImage, setProductImage] = useState(null);
 
-    
+    const [dropdownOpen, setDropdownOpen] = useState(null);
 
-
+    const toggleDropdown = (index) => {
+    setDropdownOpen(dropdownOpen === index ? null : index);
+    };
 
     const handleAnalyze = () => {
         // Analyze logic
       };
     const handleImageUpload = (event) => {
     setProductImage(URL.createObjectURL(event.target.files[0]));
-  };
+    };
 
     const handleGenerateAd = () => {
         // Logic to generate ad goes here
@@ -168,174 +170,134 @@ function Dashboard() {
                 case 'keywordresearch':
                     return (
                         <div className="bg-white p-8 overflow-auto h-full">
-                            <h2 className="text-2xl font-bold mb-4">Keyword Research</h2>
-                            <div className="flex mb-4 space-x-2">
-                                <input type="text" placeholder="Enter Keyword" className="w-full p-2 border border-gray-300 rounded" />
-                                <input type="text" placeholder="Enter Your Location" className="w-full p-2 border border-gray-300 rounded" />
-                                <button className="bg-teal-600 text-white p-2 rounded hover:bg-teal-700 transition duration-200">Analyze</button>
-                            </div>
-                            <div className="flex justify-between mb-4">
-                                <div className="flex space-x-2">
-                                    <button className="bg-gray-200 text-black py-2 px-4 rounded hover:bg-gray-300 transition duration-200">All</button>
-                                    <button className="bg-gray-200 text-black py-2 px-4 rounded hover:bg-gray-300 transition duration-200">Paid</button>
-                                    <button className="bg-gray-200 text-black py-2 px-4 rounded hover:bg-gray-300 transition duration-200">Unpaid</button>
-                                    <button className="bg-gray-200 text-black py-2 px-4 rounded hover:bg-gray-300 transition duration-200">Language</button>
-                                    <span className="py-2 px-4">Total Keywords: 900</span>
-                                </div>
-                                <button className="bg-teal-600 text-white py-2 px-4 rounded hover:bg-teal-700 transition duration-200">Pay Dues</button>
-                            </div>
-                         <table className="w-full bg-white shadow-md rounded-lg">
-                                <thead>
-                                    <tr className="bg-gray-200">
-                                        <th className="py-2 px-4 text-left"><input type="checkbox" /></th>
-                                        <th className="py-2 px-4 text-left">Keywords</th>
-                                        <th className="py-2 px-4 text-left">Avg. Monthly Volume</th>
-                                        <th className="py-2 px-4 text-left">Competition</th>
-                                        <th className="py-2 px-4 text-left">Top to Page Bid</th>
-                                        <th className="py-2 px-4 text-left"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td className="py-2 px-4 text-left"><input type="checkbox" /></td>
-                                        <td className="py-2 px-4">Justin Septimus</td>
-                                        <td className="py-2 px-4">1M - 10M</td>
-                                        <td className="py-2 px-4 text-green-500">Low</td>
-                                        <td className="py-2 px-4">$200</td>
-                                        <td className="py-2 px-4 text-right"><button className="text-gray-500 hover:text-gray-700"><i className="fas fa-ellipsis-v"></i></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td className="py-2 px-4 text-left"><input type="checkbox" /></td>
-                                        <td className="py-2 px-4">Anika Rhiel Madsen</td>
-                                        <td className="py-2 px-4">1M - 10M</td>
-                                        <td className="py-2 px-4 text-orange-500">Average</td>
-                                        <td className="py-2 px-4">$300</td>
-                                        <td className="py-2 px-4 text-right"><button className="text-gray-500 hover:text-gray-700"><i className="fas fa-ellipsis-v"></i></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td className="py-2 px-4 text-left"><input type="checkbox" /></td>
-                                        <td className="py-2 px-4">Miracle Vaccaro</td>
-                                        <td className="py-2 px-4">1M - 10M</td>
-                                        <td className="py-2 px-4 text-green-500">Low</td>
-                                        <td className="py-2 px-4">$250</td>
-                                        <td className="py-2 px-4 text-right"><button className="text-gray-500 hover:text-gray-700"><i className="fas fa-ellipsis-v"></i></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td className="py-2 px-4 text-left"><input type="checkbox" /></td>
-                                        <td className="py-2 px-4">Mira Herwitz</td>
-                                        <td className="py-2 px-4">1M - 10M</td>
-                                        <td className="py-2 px-4 text-green-500">Low</td>
-                                        <td className="py-2 px-4">$200</td>
-                                        <td className="py-2 px-4 text-right"><button className="text-gray-500 hover:text-gray-700"><i className="fas fa-ellipsis-v"></i></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td className="py-2 px-4 text-left"><input type="checkbox" /></td>
-                                        <td className="py-2 px-4">Erin Levin</td>
-                                        <td className="py-2 px-4">1M - 10M</td>
-                                        <td className="py-2 px-4 text-green-500">Low</td>
-                                        <td className="py-2 px-4">$200</td>
-                                        <td className="py-2 px-4 text-right"><button className="text-gray-500 hover:text-gray-700"><i className="fas fa-ellipsis-v"></i></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td className="py-2 px-4 text-left"><input type="checkbox" /></td>
-                                        <td className="py-2 px-4">Jaxson Siphiron</td>
-                                        <td className="py-2 px-4">1M - 10M</td>
-                                        <td className="py-2 px-4 text-orange-500">Average</td>
-                                        <td className="py-2 px-4">$200</td>
-                                        <td className="py-2 px-4 text-right"><button className="text-gray-500 hover:text-gray-700"><i className="fas fa-ellipsis-v"></i></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td className="py-2 px-4 text-left"><input type="checkbox" /></td>
-                                        <td className="py-2 px-4">Mira Levin</td>
-                                        <td className="py-2 px-4">1M - 10M</td>
-                                        <td className="py-2 px-4 text-red-500">High</td>
-                                        <td className="py-2 px-4">$750</td>
-                                        <td className="py-2 px-4 text-right"><button className="text-gray-500 hover:text-gray-700"><i className="fas fa-ellipsis-v"></i></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td className="py-2 px-4 text-left"><input type="checkbox" /></td>
-                                        <td className="py-2 px-4">Lincoln Levin</td>
-                                        <td className="py-2 px-4">1M - 10M</td>
-                                        <td className="py-2 px-4 text-green-500">Low</td>
-                                        <td className="py-2 px-4">$370</td>
-                                        <td className="py-2 px-4 text-right"><button className="text-gray-500 hover:text-gray-700"><i className="fas fa-ellipsis-v"></i></button></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <h2 className="text-2xl font-bold mb-4">Keyword Research</h2>
+                        <div className="flex mb-4 space-x-2">
+                          <input type="text" placeholder="Enter Keyword" className="w-full p-2 border border-gray-300 rounded" />
+                          <input type="text" placeholder="Enter Your Location" className="w-full p-2 border border-gray-300 rounded" />
+                          <button className="bg-teal-600 text-white p-2 rounded hover:bg-teal-700 transition duration-200">Analyze</button>
                         </div>
+                        <div className="flex justify-between mb-4">
+                          <div className="flex space-x-2">
+                            <button className="bg-gray-200 text-black py-2 px-4 rounded hover:bg-gray-300 transition duration-200">All</button>
+                            <button className="bg-gray-200 text-black py-2 px-4 rounded hover:bg-gray-300 transition duration-200">Paid</button>
+                            <button className="bg-gray-200 text-black py-2 px-4 rounded hover:bg-gray-300 transition duration-200">Unpaid</button>
+                            <button className="bg-gray-200 text-black py-2 px-4 rounded hover:bg-gray-300 transition duration-200">Language</button>
+                            <span className="py-2 px-4">Total Keywords: 900</span>
+                          </div>
+                          <button className="bg-teal-600 text-white py-2 px-4 rounded hover:bg-teal-700 transition duration-200">Pay Dues</button>
+                        </div>
+                        <table className="w-full bg-white shadow-md rounded-lg">
+                          <thead>
+                            <tr className="bg-gray-200">
+                              <th className="py-2 px-4 text-left"><input type="checkbox" /></th>
+                              <th className="py-2 px-4 text-left">Keywords</th>
+                              <th className="py-2 px-4 text-left">Avg. Monthly Volume</th>
+                              <th className="py-2 px-4 text-left">Competition</th>
+                              <th className="py-2 px-4 text-left">Top to Page Bid</th>
+                              <th className="py-2 px-4 text-left"></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {[
+                              { name: 'Justin Septimus', volume: '1M - 10M', competition: 'Low', bid: '$200', compColor: 'text-green-500' },
+                              { name: 'Anika Rhiel Madsen', volume: '1M - 10M', competition: 'Average', bid: '$300', compColor: 'text-orange-500' },
+                              { name: 'Miracle Vaccaro', volume: '1M - 10M', competition: 'Low', bid: '$250', compColor: 'text-green-500' },
+                              { name: 'Mira Herwitz', volume: '1M - 10M', competition: 'Low', bid: '$200', compColor: 'text-green-500' },
+                              { name: 'Erin Levin', volume: '1M - 10M', competition: 'Low', bid: '$200', compColor: 'text-green-500' },
+                              { name: 'Jaxson Siphiron', volume: '1M - 10M', competition: 'Average', bid: '$200', compColor: 'text-orange-500' },
+                              { name: 'Mira Levin', volume: '1M - 10M', competition: 'High', bid: '$750', compColor: 'text-red-500' },
+                              { name: 'Lincoln Levin', volume: '1M - 10M', competition: 'Low', bid: '$370', compColor: 'text-green-500' },
+                            ].map((keyword, index) => (
+                              <tr key={index} className="relative">
+                                <td className="py-2 px-4 text-left"><input type="checkbox" /></td>
+                                <td className="py-2 px-4">{keyword.name}</td>
+                                <td className="py-2 px-4">{keyword.volume}</td>
+                                <td className={`py-2 px-4 ${keyword.compColor}`}>{keyword.competition}</td>
+                                <td className="py-2 px-4">{keyword.bid}</td>
+                                <td className="py-2 px-4 text-right relative">
+                                  <button onClick={() => toggleDropdown(index)} className="text-gray-500 hover:text-gray-700 focus:outline-none relative">
+                                    <FontAwesomeIcon icon={faChevronDown} />
+                                  </button>
+                                  {dropdownOpen === index && (
+                                    <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded shadow-lg z-10">
+                                      <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Action 1</a>
+                                      <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Action 2</a>
+                                      <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Action 3</a>
+                                    </div>
+                                  )}
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
                     );
 
 
                     case 'contentideas':
                     return (
                         <div className="bg-white p-8 overflow-auto h-full">
-                            <h2 className="text-2xl font-bold mb-4">Content Ideas</h2>
-                            <div className="flex mb-4 space-x-2">
-                                <input type="text" placeholder="Enter Keyword" className="w-full p-2 border border-gray-300 rounded" />
-                                <input type="text" placeholder="Enter Your Location" className="w-full p-2 border border-gray-300 rounded" />
-                                <button className="bg-teal-600 text-white p-2 rounded hover:bg-teal-700 transition duration-200">Analyze</button>
-                            </div>
-                            <div className="flex justify-between mb-4">
-                                <div className="flex space-x-2">
-                                    <button className="bg-gray-200 text-black py-2 px-4 rounded hover:bg-gray-300 transition duration-200">All</button>
-                                    <button className="bg-gray-200 text-black py-2 px-4 rounded hover:bg-gray-300 transition duration-200">Paid</button>
-                                    <button className="bg-gray-200 text-black py-2 px-4 rounded hover:bg-gray-300 transition duration-200">Unpaid</button>
-                                    <button className="bg-gray-200 text-black py-2 px-4 rounded hover:bg-gray-300 transition duration-200">Language</button>
-                                    <span className="py-2 px-4 flex justify-right ">Total Keywords: 900</span>
-                                </div>
-                                
-                            </div>
-                            <table className="w-full bg-white shadow-md rounded-lg">
-                                <thead>
-                                                        
-                                    <tr className="bg-gray-200">
-                                        <th className="py-2 px-4 text-left"><input type="checkbox" /></th>
-                                        <th className="py-2 px-4 text-left">Keywords</th>
-                                        <th className="py-2 px-4 text-left"></th>
-                                        <th className="py-2 px-4 text-left"></th>
-                                        <th className="py-2 px-4 text-left"></th>
-                                        <th className="py-2 px-4 text-left"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td className="py-2 px-4 text-left"><input type="checkbox" /></td>
-                                        <td className="py-2 px-4">Justin Septimus</td>
-                                        <td className="py-2 px-4 text-right"><button className="text-gray-500 hover:text-gray-700"><i className="fas fa-ellipsis-v"></i></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td className="py-2 px-4 text-left"><input type="checkbox" /></td>
-                                        <td className="py-2 px-4">Anika Rhiel Madsen</td>
-                                        <td className="py-2 px-4 text-right"><button className="text-gray-500 hover:text-gray-700"><i className="fas fa-ellipsis-v"></i></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td className="py-2 px-4 text-left"><input type="checkbox" /></td>
-                                        <td className="py-2 px-4">Miracle Vaccaro</td>
-                                        <td className="py-2 px-4 text-right"><button className="text-gray-500 hover:text-gray-700"><i className="fas fa-ellipsis-v"></i></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td className="py-2 px-4 text-left"><input type="checkbox" /></td>
-                                        <td className="py-2 px-4">Mira Herwitz</td>
-                                        <td className="py-2 px-4 text-right"><button className="text-gray-500 hover:text-gray-700"><i className="fas fa-ellipsis-v"></i></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td className="py-2 px-4 text-left"><input type="checkbox" /></td>
-                                        <td className="py-2 px-4">Erin Levin</td>
-                                        <td className="py-2 px-4 text-right"><button className="text-gray-500 hover:text-gray-700"><i className="fas fa-ellipsis-v"></i></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td className="py-2 px-4 text-left"><input type="checkbox" /></td>
-                                        <td className="py-2 px-4">Jaxson Siphiron</td>
-                                        <td className="py-2 px-4 text-right"><button className="text-gray-500 hover:text-gray-700"><i className="fas fa-ellipsis-v"></i></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td className="py-2 px-4 text-left"><input type="checkbox" /></td>
-                                        <td className="py-2 px-4">Mira Levin</td>
-                                        <td className="py-2 px-4 text-right"><button className="text-gray-500 hover:text-gray-700"><i className="fas fa-ellipsis-v"></i></button></td>
-                                    </tr>                            
-                                </tbody>
-                            </table>
+                        <h2 className="text-2xl font-bold mb-4">Content Ideas</h2>
+                        <div className="flex mb-4 space-x-2">
+                          <input type="text" placeholder="Enter Keyword" className="w-full p-2 border border-gray-300 rounded" />
+                          <input type="text" placeholder="Enter Your Location" className="w-full p-2 border border-gray-300 rounded" />
+                          <button className="bg-teal-600 text-white p-2 rounded hover:bg-teal-700 transition duration-200">Analyze</button>
                         </div>
+                        <div className="flex justify-between mb-4">
+                          <div className="flex space-x-2">
+                            <button className="bg-gray-200 text-black py-2 px-4 rounded hover:bg-gray-300 transition duration-200">All</button>
+                            <button className="bg-gray-200 text-black py-2 px-4 rounded hover:bg-gray-300 transition duration-200">Paid</button>
+                            <button className="bg-gray-200 text-black py-2 px-4 rounded hover:bg-gray-300 transition duration-200">Unpaid</button>
+                            <button className="bg-gray-200 text-black py-2 px-4 rounded hover:bg-gray-300 transition duration-200">Language</button>
+                            <span className="py-2 px-4">Total Keywords: 900</span>
+                          </div>
+                        
+                        </div>
+                        <table className="w-full bg-white shadow-md rounded-lg">
+                          <thead>
+                            <tr className="bg-gray-200">
+                              <th className="py-2 px-4 text-left"><input type="checkbox" /></th>
+                              <th className="py-2 px-4 text-left">Keywords</th>
+                              <th className="py-2 px-4 text-left"></th>
+                              <th className="py-2 px-4 text-left"></th>
+                              <th className="py-2 px-4 text-left"></th>
+                              <th className="py-2 px-4 text-left"></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {[
+                              { name: 'Justin Septimus' },
+                              { name: 'Anika Rhiel Madsen' },
+                              { name: 'Miracle Vaccaro' },
+                              { name: 'Mira Herwitz' },
+                              { name: 'Erin Levin' },
+                              { name: 'Jaxson Siphiron' },
+                              { name: 'Mira Levin' },
+                              { name: 'Lincoln Levin' },
+                            ].map((keyword, index) => (
+                              <tr key={index} className="relative">
+                                <td className="py-2 px-4 text-left"><input type="checkbox" /></td>
+                                <td className="py-2 px-4">{keyword.name}</td>
+                                <td className="py-2 px-4">{keyword.volume}</td>
+                                <td className={`py-2 px-4 ${keyword.compColor}`}>{keyword.competition}</td>
+                                <td className="py-2 px-4">{keyword.bid}</td>
+                                <td className="py-2 px-4 text-right relative">
+                                  <button onClick={() => toggleDropdown(index)} className="text-gray-500 hover:text-gray-700 focus:outline-none relative">
+                                    <FontAwesomeIcon icon={faChevronDown} />
+                                  </button>
+                                  {dropdownOpen === index && (
+                                    <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded shadow-lg z-10">
+                                      <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Action 1</a>
+                                      <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Action 2</a>
+                                      <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Action 3</a>
+                                    </div>
+                                  )}
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
                     );
 
 
@@ -408,83 +370,101 @@ function Dashboard() {
                         case 'competitor':
                             return(
                                 <div className="bg-white p-8 rounded-lg shadow-md w-full h-full">
-                                <div className="border-b pb-4 mb-4">
-                                  <h2 className="text-xl font-semibold">Dashboard &gt; Competitor Analysis</h2>
-                                </div>
-                                <div className="mb-4">
-                                  <label className="block text-gray-700 mb-2" htmlFor="domain">
-                                    Enter Domain
-                                  </label>
-                                  <input
-                                    type="text"
-                                    id="domain"
-                                    placeholder="dummy.com"
-                                    className="w-full p-2 border border-gray-300 rounded"
-                                  />
-                                </div>
-                                <div className="border p-4 rounded mb-4">
-                                  <div className="grid grid-cols-3 gap-4">
-                                    <div className="flex flex-col">
-                                      <span className="text-gray-500">Domain Authority</span>
-                                      <span className="font-bold">Value</span>
-                                    </div>
-                                    <div className="flex flex-col">
-                                      <span className="text-gray-500">Page Authority</span>
-                                      <span className="font-bold">Value</span>
-                                    </div>
-                                    <div className="flex flex-col">
-                                      <span className="text-gray-500">Search Traffic</span>
-                                      <span className="font-bold">Value</span>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div className="grid grid-cols-2 gap-4">
-                                  <div className="bg-gray-50 p-4 rounded-lg shadow">
-                                    <h3 className="text-lg font-medium mb-4">Top Competitors</h3>
-                                    <table className="w-full text-left">
-                                      <thead>
-                                        <tr>
-                                          <th className="py-2 px-4 border-b">Domain</th>
-                                          <th className="py-2 px-4 border-b">DA</th>
-                                        </tr>
-                                      </thead>
-                                      <tbody>
-                                        {['abcd.com', 'efgh.com', 'ijkl.com'].map((domain, index) => (
-                                          <tr key={index}>
-                                            <td className="py-2 px-4 border-b flex items-center">
-                                              <input type="checkbox" className="mr-2" />
-                                              {domain}
-                                              <FontAwesomeIcon icon={faChevronDown} className="ml-2 text-gray-500" />
-                                            </td>
-                                            <td className="py-2 px-4 border-b">Value</td>
-                                          </tr>
-                                        ))}
-                                      </tbody>
-                                    </table>
-                                  </div>
-                                  <div className="bg-gray-50 p-4 rounded-lg shadow">
-                                    <h3 className="text-lg font-medium mb-4">Top Keywords</h3>
-                                    <table className="w-full text-left">
-                                      <thead>
-                                        <tr>
-                                          <th className="py-2 px-4 border-b">Keyword</th>
-                                        </tr>
-                                      </thead>
-                                      <tbody>
-                                        {['keyword1', 'keyword2', 'keyword3'].map((keyword, index) => (
-                                          <tr key={index}>
-                                            <td className="py-2 px-4 border-b flex items-center">
-                                              <input type="checkbox" className="mr-2" />
-                                              {keyword}
-                                              <FontAwesomeIcon icon={faChevronDown} className="ml-2 text-gray-500" />
-                                            </td>
-                                          </tr>
-                                        ))}
-                                      </tbody>
-                                    </table>
-                                  </div>
-                                </div>
-                              </div>
+      <div className="border-b pb-4 mb-4">
+        <h2 className="text-xl font-semibold">Dashboard &gt; Competitor Analysis</h2>
+      </div>
+      <div className="mb-4">
+        <label className="block text-gray-700 mb-2" htmlFor="domain">
+          Enter Domain
+        </label>
+        <input
+          type="text"
+          id="domain"
+          placeholder="dummy.com"
+          className="w-full p-2 border border-gray-300 rounded"
+        />
+      </div>
+      <div className="border p-4 rounded mb-4">
+        <div className="grid grid-cols-3 gap-4">
+          <div className="flex flex-col">
+            <span className="text-gray-500">Domain Authority</span>
+            <span className="font-bold">Value</span>
+          </div>
+          <div className="flex flex-col">
+            <span className="text-gray-500">Page Authority</span>
+            <span className="font-bold">Value</span>
+          </div>
+          <div className="flex flex-col">
+            <span className="text-gray-500">Search Traffic</span>
+            <span className="font-bold">Value</span>
+          </div>
+        </div>
+      </div>
+      <div className="grid grid-cols-2 gap-4">
+        <div className="bg-gray-50 p-4 rounded-lg shadow relative">
+          <h3 className="text-lg font-medium mb-4">Top Competitors</h3>
+          <table className="w-full text-left">
+            <thead>
+              <tr>
+                <th className="py-2 px-4 border-b">Domain</th>
+                <th className="py-2 px-4 border-b">DA</th>
+              </tr>
+            </thead>
+            <tbody>
+              {['abcd.com', 'efgh.com', 'ijkl.com'].map((domain, index) => (
+                <tr key={index} className="relative">
+                  <td className="py-2 px-4 border-b flex items-center">
+                    <input type="checkbox" className="mr-2" />
+                    {domain}
+                    <button onClick={() => toggleDropdown(`competitor-${index}`)} className="ml-2 text-gray-500 hover:text-gray-700 focus:outline-none relative">
+                      <FontAwesomeIcon icon={faChevronDown} />
+                    </button>
+                    {dropdownOpen === `competitor-${index}` && (
+                      <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded shadow-lg z-10">
+                        <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Action 1</a>
+                        <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Action 2</a>
+                        <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Action 3</a>
+                      </div>
+                    )}
+                  </td>
+                  <td className="py-2 px-4 border-b">Value</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className="bg-gray-50 p-4 rounded-lg shadow relative">
+          <h3 className="text-lg font-medium mb-4">Top Keywords</h3>
+          <table className="w-full text-left">
+            <thead>
+              <tr>
+                <th className="py-2 px-4 border-b">Keyword</th>
+              </tr>
+            </thead>
+            <tbody>
+              {['keyword1', 'keyword2', 'keyword3'].map((keyword, index) => (
+                <tr key={index} className="relative">
+                  <td className="py-2 px-4 border-b flex items-center">
+                    <input type="checkbox" className="mr-2" />
+                    {keyword}
+                    <button onClick={() => toggleDropdown(`keyword-${index}`)} className="ml-2 text-gray-500 hover:text-gray-700 focus:outline-none relative">
+                      <FontAwesomeIcon icon={faChevronDown} />
+                    </button>
+                    {dropdownOpen === `keyword-${index}` && (
+                      <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded shadow-lg z-10">
+                        <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Action 1</a>
+                        <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Action 2</a>
+                        <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Action 3</a>
+                      </div>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
                             );
 
 

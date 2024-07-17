@@ -11,6 +11,7 @@ import Dashboard from './pages/Dashboard.jsx'
 // import Homepage from './pages/Homepage.jsx'
 import Home from './pages/Home.jsx'
 import Admin from './pages/Admin.jsx'
+import Admindashboard from './pages/Admindashboard.jsx'
 
 const router = createBrowserRouter([ 
   {
@@ -41,6 +42,7 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element:<Dashboard/>
   },
+
   {
     path: "/Home",
     element:<Home/>
@@ -48,7 +50,11 @@ const router = createBrowserRouter([
   {
     path: "/Admin",
     element:<Admin/>
-  }
+  },
+  {
+    path: "/Admindashboard",
+    element:<Admindashboard/>
+  },
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
