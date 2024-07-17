@@ -21,11 +21,14 @@ export const IMAGES={
     burger : new URL ( "../assets/burger.png", import.meta.url).href,
     Profile : new URL ( "../assets/Profile.png", import.meta.url).href,
     Setting : new URL ( "../assets/Setting.png", import.meta.url).href,
+    graph : new URL ( "../assets/graph.png", import.meta.url).href,
     Mainimage : new URL ( "../assets/Mainimage.png", import.meta.url).href,
     Profiling : new URL ( "../assets/PROFILING.SVG", import.meta.url).href,
     competitor : new URL ( "../assets/COMPETITOR.SVG", import.meta.url).href,
     Article : new URL ( "../assets/ARTICLE WRITING.SVG", import.meta.url).href,
-    chart : new URL ( "../assets/chart.png", import.meta.url).href,
+    chart : new URL ( "../assets/chart.svg", import.meta.url).href,
+
+
   envelopeIcon: new URL("../assets/email.svg", import.meta.url).href,
   coverimg: new URL("../assets/mainimg.png", import.meta.url).href,
   servicesimg: new URL("../assets/servicesimg.png", import.meta.url).href,

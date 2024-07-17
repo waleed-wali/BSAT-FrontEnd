@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { IMAGES } from '../constants/images';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEllipsisV, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 
 function Dashboard() {
@@ -17,6 +18,10 @@ function Dashboard() {
     const [productName, setProductName] = useState('');
     const [productDescription, setProductDescription] = useState('');
     const [productImage, setProductImage] = useState(null);
+
+    
+
+
 
     const handleAnalyze = () => {
         // Analyze logic
@@ -175,13 +180,11 @@ function Dashboard() {
                                     <button className="bg-gray-200 text-black py-2 px-4 rounded hover:bg-gray-300 transition duration-200">Paid</button>
                                     <button className="bg-gray-200 text-black py-2 px-4 rounded hover:bg-gray-300 transition duration-200">Unpaid</button>
                                     <button className="bg-gray-200 text-black py-2 px-4 rounded hover:bg-gray-300 transition duration-200">Language</button>
+                                    <span className="py-2 px-4">Total Keywords: 900</span>
                                 </div>
                                 <button className="bg-teal-600 text-white py-2 px-4 rounded hover:bg-teal-700 transition duration-200">Pay Dues</button>
                             </div>
-                            <div className="mb-4">
-                                <span>Total Keywords: 900</span>
-                            </div>
-                            <table className="w-full bg-white shadow-md rounded-lg">
+                         <table className="w-full bg-white shadow-md rounded-lg">
                                 <thead>
                                     <tr className="bg-gray-200">
                                         <th className="py-2 px-4 text-left"><input type="checkbox" /></th>
@@ -262,6 +265,80 @@ function Dashboard() {
                         </div>
                     );
 
+
+                    case 'contentideas':
+                    return (
+                        <div className="bg-white p-8 overflow-auto h-full">
+                            <h2 className="text-2xl font-bold mb-4">Content Ideas</h2>
+                            <div className="flex mb-4 space-x-2">
+                                <input type="text" placeholder="Enter Keyword" className="w-full p-2 border border-gray-300 rounded" />
+                                <input type="text" placeholder="Enter Your Location" className="w-full p-2 border border-gray-300 rounded" />
+                                <button className="bg-teal-600 text-white p-2 rounded hover:bg-teal-700 transition duration-200">Analyze</button>
+                            </div>
+                            <div className="flex justify-between mb-4">
+                                <div className="flex space-x-2">
+                                    <button className="bg-gray-200 text-black py-2 px-4 rounded hover:bg-gray-300 transition duration-200">All</button>
+                                    <button className="bg-gray-200 text-black py-2 px-4 rounded hover:bg-gray-300 transition duration-200">Paid</button>
+                                    <button className="bg-gray-200 text-black py-2 px-4 rounded hover:bg-gray-300 transition duration-200">Unpaid</button>
+                                    <button className="bg-gray-200 text-black py-2 px-4 rounded hover:bg-gray-300 transition duration-200">Language</button>
+                                    <span className="py-2 px-4 flex justify-right ">Total Keywords: 900</span>
+                                </div>
+                                
+                            </div>
+                            <table className="w-full bg-white shadow-md rounded-lg">
+                                <thead>
+                                                        
+                                    <tr className="bg-gray-200">
+                                        <th className="py-2 px-4 text-left"><input type="checkbox" /></th>
+                                        <th className="py-2 px-4 text-left">Keywords</th>
+                                        <th className="py-2 px-4 text-left"></th>
+                                        <th className="py-2 px-4 text-left"></th>
+                                        <th className="py-2 px-4 text-left"></th>
+                                        <th className="py-2 px-4 text-left"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td className="py-2 px-4 text-left"><input type="checkbox" /></td>
+                                        <td className="py-2 px-4">Justin Septimus</td>
+                                        <td className="py-2 px-4 text-right"><button className="text-gray-500 hover:text-gray-700"><i className="fas fa-ellipsis-v"></i></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td className="py-2 px-4 text-left"><input type="checkbox" /></td>
+                                        <td className="py-2 px-4">Anika Rhiel Madsen</td>
+                                        <td className="py-2 px-4 text-right"><button className="text-gray-500 hover:text-gray-700"><i className="fas fa-ellipsis-v"></i></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td className="py-2 px-4 text-left"><input type="checkbox" /></td>
+                                        <td className="py-2 px-4">Miracle Vaccaro</td>
+                                        <td className="py-2 px-4 text-right"><button className="text-gray-500 hover:text-gray-700"><i className="fas fa-ellipsis-v"></i></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td className="py-2 px-4 text-left"><input type="checkbox" /></td>
+                                        <td className="py-2 px-4">Mira Herwitz</td>
+                                        <td className="py-2 px-4 text-right"><button className="text-gray-500 hover:text-gray-700"><i className="fas fa-ellipsis-v"></i></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td className="py-2 px-4 text-left"><input type="checkbox" /></td>
+                                        <td className="py-2 px-4">Erin Levin</td>
+                                        <td className="py-2 px-4 text-right"><button className="text-gray-500 hover:text-gray-700"><i className="fas fa-ellipsis-v"></i></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td className="py-2 px-4 text-left"><input type="checkbox" /></td>
+                                        <td className="py-2 px-4">Jaxson Siphiron</td>
+                                        <td className="py-2 px-4 text-right"><button className="text-gray-500 hover:text-gray-700"><i className="fas fa-ellipsis-v"></i></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td className="py-2 px-4 text-left"><input type="checkbox" /></td>
+                                        <td className="py-2 px-4">Mira Levin</td>
+                                        <td className="py-2 px-4 text-right"><button className="text-gray-500 hover:text-gray-700"><i className="fas fa-ellipsis-v"></i></button></td>
+                                    </tr>                            
+                                </tbody>
+                            </table>
+                        </div>
+                    );
+
+
                     case 'blogs':
                         return(
                             <div>
@@ -272,9 +349,9 @@ function Dashboard() {
 
                         case 'keywordanalytics' :
                             return (
-                                <div className="flex-1 p-6 bg-white">
+                                <div className="bg-white p-8 overflow-auto h-full">
                                   <h2 className="text-2xl font-semibold mb-4">Keyword Analytics</h2>
-                                  <div className="flex items-center space-x-4 mb-8">
+                                  <div >
                                     <input
                                       type="text"
                                       value={keyword}
@@ -282,10 +359,10 @@ function Dashboard() {
                                       placeholder='Enter Keyword...'
                                       className="w-200 px-3 py-2 border border-gray-300 rounded-md mb-5"
                                     />
-                                    <div className="flex justify-right ml-4">
+                                    <div className="flex justify-end relative">
                                     <button
                                       onClick={handleAnalyze}
-                                      className="bg-teal-600 text-white py-2 px-4 rounded hover:bg-teal-700 transition duration-200 "
+                                      className="bg-teal-600 text-white py-2 px-4 rounded hover:bg-teal-700 transition duration-200 -mt-4"
                                     >
                                       Analyze
                                     </button>
@@ -297,7 +374,7 @@ function Dashboard() {
                                     
                                     <div className="flex items-start space-x-8">
                                       <div className="flex-1">
-                                        <img src={IMAGES.chart} alt="chart" className="w-full" />
+                                        <img src={IMAGES.graph} alt="chart" className="w-full" />
                                       </div>
                                       <div className="w-64">
                                         <h4 className="text-lg font-semibold mb-2">Top Keywords</h4>
@@ -327,6 +404,88 @@ function Dashboard() {
                                   </div>
                                 </div>
                               );
+
+                        case 'competitor':
+                            return(
+                                <div className="bg-white p-8 rounded-lg shadow-md w-full h-full">
+                                <div className="border-b pb-4 mb-4">
+                                  <h2 className="text-xl font-semibold">Dashboard &gt; Competitor Analysis</h2>
+                                </div>
+                                <div className="mb-4">
+                                  <label className="block text-gray-700 mb-2" htmlFor="domain">
+                                    Enter Domain
+                                  </label>
+                                  <input
+                                    type="text"
+                                    id="domain"
+                                    placeholder="dummy.com"
+                                    className="w-full p-2 border border-gray-300 rounded"
+                                  />
+                                </div>
+                                <div className="border p-4 rounded mb-4">
+                                  <div className="grid grid-cols-3 gap-4">
+                                    <div className="flex flex-col">
+                                      <span className="text-gray-500">Domain Authority</span>
+                                      <span className="font-bold">Value</span>
+                                    </div>
+                                    <div className="flex flex-col">
+                                      <span className="text-gray-500">Page Authority</span>
+                                      <span className="font-bold">Value</span>
+                                    </div>
+                                    <div className="flex flex-col">
+                                      <span className="text-gray-500">Search Traffic</span>
+                                      <span className="font-bold">Value</span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div className="grid grid-cols-2 gap-4">
+                                  <div className="bg-gray-50 p-4 rounded-lg shadow">
+                                    <h3 className="text-lg font-medium mb-4">Top Competitors</h3>
+                                    <table className="w-full text-left">
+                                      <thead>
+                                        <tr>
+                                          <th className="py-2 px-4 border-b">Domain</th>
+                                          <th className="py-2 px-4 border-b">DA</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        {['abcd.com', 'efgh.com', 'ijkl.com'].map((domain, index) => (
+                                          <tr key={index}>
+                                            <td className="py-2 px-4 border-b flex items-center">
+                                              <input type="checkbox" className="mr-2" />
+                                              {domain}
+                                              <FontAwesomeIcon icon={faChevronDown} className="ml-2 text-gray-500" />
+                                            </td>
+                                            <td className="py-2 px-4 border-b">Value</td>
+                                          </tr>
+                                        ))}
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                  <div className="bg-gray-50 p-4 rounded-lg shadow">
+                                    <h3 className="text-lg font-medium mb-4">Top Keywords</h3>
+                                    <table className="w-full text-left">
+                                      <thead>
+                                        <tr>
+                                          <th className="py-2 px-4 border-b">Keyword</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        {['keyword1', 'keyword2', 'keyword3'].map((keyword, index) => (
+                                          <tr key={index}>
+                                            <td className="py-2 px-4 border-b flex items-center">
+                                              <input type="checkbox" className="mr-2" />
+                                              {keyword}
+                                              <FontAwesomeIcon icon={faChevronDown} className="ml-2 text-gray-500" />
+                                            </td>
+                                          </tr>
+                                        ))}
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            );
 
 
                         case 'ADs generation':
@@ -389,7 +548,7 @@ function Dashboard() {
                         <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 flex gap-4 text-sm items-left justify-left space-x-2 ${activeTab === 'profile' ? 'bg-gray-500 ' : ''}`} onClick={() => setActiveTab('profile')}><img src={IMAGES.profile} alt="profile" className="h-4 w-4" />Profile</a>
                         <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 flex gap-4 text-sm items-left justify-left space-x-2 ${activeTab === 'keywordresearch' ? 'bg-gray-500 ' : ''}`} onClick={() => setActiveTab('keywordresearch')}><img src={IMAGES.KeyResearch} alt="Keyword Research" className="h-4 w-4" />Keyword Research</a>
                         <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 flex gap-4 text-sm items-left justify-left space-x-2 ${activeTab === 'websiteaudit' ? 'bg-gray-500 ' : ''}`} onClick={() => setActiveTab('websiteaudit')}><img src={IMAGES.WebAdt} alt="web Audit" className="h-4 w-4" />Website Audit</a>
-                        <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 flex gap-4 text-sm items-left justify-left space-x-2 ${activeTab === 'contentcreationideas' ? 'bg-gray-500 ' : ''}`} onClick={() => setActiveTab('contentcreationideas')}><img src={IMAGES.ccreation} alt="content creation" className="h-4 w-4" />Content Ideas</a>
+                        <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 flex gap-4 text-sm items-left justify-left space-x-2 ${activeTab === 'contentideas' ? 'bg-gray-500 ' : ''}`} onClick={() => setActiveTab('contentideas')}><img src={IMAGES.ccreation} alt="content ideas" className="h-4 w-4" />Content Ideas</a>
                         <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 flex gap-4 text-sm items-left justify-left space-x-2 ${activeTab === 'ADs generation' ? 'bg-gray-500 ' : ''}`} onClick={() => setActiveTab('ADs generation')}><img src={IMAGES.csuggestion} alt="ADs generation" className="h-4 w-4" />ADs Generation</a>
                         <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 flex gap-4 text-sm items-left justify-left space-x-2 ${activeTab === 'keywordanalytics' ? 'bg-gray-500 ' : ''}`} onClick={() => setActiveTab('keywordanalytics')}><img src={IMAGES.WEBANA} alt="keyword Analytics" className="h-4 w-4" />Keyword Analytics</a>
                         <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 flex gap-4 text-sm items-left justify-left space-x-2 ${activeTab === 'competitor' ? 'bg-gray-500 ' : ''}`} onClick={() => setActiveTab('competitor')}><img src={IMAGES.WEBANA} alt="Competitor" className="h-4 w-4" />Competitors Analysis</a>
