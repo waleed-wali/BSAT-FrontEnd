@@ -27,7 +27,7 @@ export const IMAGES={
     competitor : new URL ( "../assets/COMPETITOR.SVG", import.meta.url).href,
     Article : new URL ( "../assets/ARTICLE WRITING.SVG", import.meta.url).href,
     chart : new URL ( "../assets/chart.svg", import.meta.url).href,
-
+    tool : new URL ( "../assets/Tool.svg", import.meta.url).href,
 
   envelopeIcon: new URL("../assets/email.svg", import.meta.url).href,
   coverimg: new URL("../assets/mainimg.png", import.meta.url).href,

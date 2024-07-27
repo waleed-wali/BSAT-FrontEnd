@@ -12,6 +12,7 @@ import Dashboard from './pages/Dashboard.jsx'
 import Home from './pages/Home.jsx'
 import Admin from './pages/Admin.jsx'
 import Admindashboard from './pages/Admindashboard.jsx'
+import Paymenthome from './pages/Paymenthome.jsx'
 
 const router = createBrowserRouter([ 
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
   {
     path: "/Admindashboard",
     element:<Admindashboard/>
+  },
+  {
+    path: "/Paymenthome",
+    element:<Paymenthome/>
   },
 ])
 
