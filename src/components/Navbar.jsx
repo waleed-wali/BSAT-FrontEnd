@@ -13,9 +13,9 @@ const Navbar = ()=>{
             </div>
             <div className="container flex items-center justify-between flex-1 mr-4">
                 <button className="text-sm font-bold mr-4 h-full px-4 hover:bg-custom hover:text-white transform-all duration-200">Home</button>
-                <button className="text-sm font-bold mr-4 h-full px-4 hover:bg-custom hover:text-white transform-all duration-200" onClick={() => scrollToSection('section1')}>Service</button>
+                <button className="text-sm font-bold mr-4 h-full px-4 hover:bg-custom hover:text-white transform-all duration-200" onClick={() => scrollToSection('section3')}>Service</button>
                 <button className="text-sm font-bold mr-4 h-full px-4 hover:bg-custom hover:text-white transform-all duration-200" onClick={() => scrollToSection('section1')}>Pricing</button>
-                <button className="text-sm font-bold mr-4 h-full px-4 hover:bg-custom hover:text-white transform-all duration-200" onClick={() => scrollToSection('section2')}>Contact</button>
+                <button className="text-sm font-bold mr-4 h-full px-4 hover:bg-custom hover:text-white transform-all duration-200" onClick={() => scrollToSection('section4')}>Contact</button>
                 <button className="text-sm font-bold h-full px-4 hover:bg-custom hover:text-white transform-all duration-200" onClick={() => scrollToSection('section2')}>Help</button>
             </div>
 

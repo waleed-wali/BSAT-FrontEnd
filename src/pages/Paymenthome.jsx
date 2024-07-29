@@ -34,17 +34,17 @@ const Paymenthome = () => {
 
             <div className="container mx-auto flex flex-wrap flex-row items-start max-screen-md h-max justify-center">
                 <div className="container group flex flex-col justify-around h-96 w-56 m-4 p-5 bg-white rounded-lg shadow-custom transition-all duration-400 hover:bg-gradient-tr hover:scale-105">
-                    <div className="w-28 h-28 bg-white rounded-full flex items-center justify-center shadow-custom">
-                        <img
-                            src={IMAGES.group1}
-                            alt="Your Alt Text"
-                            className="w-16 h-16"
-                        />
-                    </div>
-                    <p className="text-md font-bold group-hover:text-white">Intro</p>
-                    <p className="text-xs font-medium leading-5 text-customgrey group-hover:text-white">Rely on seasoned professionals for tailored SEO advice and strategic planning aligned with your unique goals</p>
+                    
+                    <p className="text-xl font-bold group-hover:text-white ">Intro</p>
+                    <p className="text-xs font-medium leading-5 text-customgrey group-hover:text-white">
+                    <li className="text-md font-bold leading-5 text-customgrey group-hover:text-white mb-2">✓ Keyword Research</li>
+                        <li className="font-bold text-gray-400  mb-2">✗ Content Ideas</li>
+                        <li className="font-bold text-gray-400 mb-2">✗ Content Generation</li>
+                        <li className="font-bold text-gray-400 mb-2">✗ Citation Suggestions</li>
+                        <li className="font-bold text-md text-gray-400 mb-2">✗ Website Analytics</li>
+                    </p>
                     <div className="container flex w-full items-center justify-between">
-                        <p className="text-sm text-custompurple group-hover:text-white">VIEW MORE</p>
+                        <p className="text-md font-bold text-black group-hover:text-white">$123/month</p>
                         <img
                             src={IMAGES.arrowright}
                             alt="Your Alt Text"
@@ -54,17 +54,17 @@ const Paymenthome = () => {
                 </div>
 
                 <div className="container group flex flex-col justify-around h-96 w-56 m-4 p-5 bg-white rounded-lg shadow-custom transition-all duration-400 hover:bg-gradient-tr hover:scale-105">
-                    <div className="w-28 h-28 bg-white rounded-full flex items-center justify-center shadow-custom">
-                        <img
-                            src={IMAGES.group2}
-                            alt="Your Alt Text"
-                            className="w-16 h-16"
-                        />
-                    </div>
-                    <p className="text-md font-bold group-hover:text-white">Base </p>
-                    <p className="text-xs font-medium leading-5 text-customgrey group-hover:text-white">Rely on seasoned professionals for tailored SEO advice and strategic planning aligned with your unique goals</p>
+                   
+                    <p className="text-xl font-bold group-hover:text-white">Base </p>
+                    <p className="text-xs font-medium leading-5 text-customgrey group-hover:text-white">
+                    <li className="text-md font-bold leading-5 text-customgrey group-hover:text-white mb-2">✓ Keyword Research</li>
+                        <li className="font-bold mb-2">✓ Content Ideas</li>
+                        <li className="font-bold text-gray-400 mb-2">✗ Content Generation</li>
+                        <li className="font-bold text-gray-400 mb-2">✗ Citation Suggestions</li>
+                        <li className="font-bold text-md text-gray-400 mb-2">✗ Website Analytics</li>
+                    </p>
                     <div className="container flex w-full items-center justify-between">
-                        <p className="text-sm text-custompurple group-hover:text-white">VIEW MORE</p>
+                        <p className="text-md font-bold text-black group-hover:text-white">$123/month</p>
                         <img
                             src={IMAGES.arrowright}
                             alt="Your Alt Text"
@@ -74,17 +74,17 @@ const Paymenthome = () => {
                 </div>
 
                 <div className="container group flex flex-col justify-around h-96 w-56 m-4 p-5 bg-white rounded-lg shadow-custom transition-all duration-400 hover:bg-gradient-tr hover:scale-105">
-                    <div className="w-28 h-28 bg-white rounded-full flex items-center justify-center shadow-custom">
-                        <img
-                            src={IMAGES.group3}
-                            alt="Your Alt Text"
-                            className="w-16 h-16"
-                        />
-                    </div>
-                    <p className="text-md font-bold group-hover:text-white">Pro</p>
-                    <p className="text-xs font-medium leading-5 text-customgrey group-hover:text-white">Rely on seasoned professionals for tailored SEO advice and strategic planning aligned with your unique goals</p>
+                   
+                    <p className="text-xl font-bold group-hover:text-white">Pro</p>
+                    <p className="text-xs font-medium leading-5 text-customgrey group-hover:text-white">
+                    <li className="text-md font-bold leading-5 text-customgrey group-hover:text-white mb-2">✓ Premium Keyword Research</li>
+                        <li className="font-bold mb-2">✓ Content Ideas</li>
+                        <li className="font-bold mb-2">✓ Content Generation</li>
+                        <li className="font-bold mb-2">✓ Citation Suggestions</li>
+                        <li className="font-bold text-md text-gray-400 mb-2">✗ Website Analytics</li>
+                    </p>
                     <div className="container flex w-full items-center justify-between">
-                        <p className="text-sm text-custompurple group-hover:text-white">VIEW MORE</p>
+                        <p className="text-md font-bold text-black group-hover:text-white">$123/month</p>
                         <img
                             src={IMAGES.arrowright}
                             alt="Your Alt Text"
@@ -94,17 +94,17 @@ const Paymenthome = () => {
                 </div>
 
                 <div className="container group flex flex-col justify-around h-96 w-56 m-4 p-5 bg-white rounded-lg shadow-custom transition-all duration-400 hover:bg-gradient-tr hover:scale-105">
-                    <div className="w-28 h-28 bg-white rounded-full flex items-center justify-center shadow-custom">
-                        <img
-                            src={IMAGES.group4}
-                            alt="Your Alt Text"
-                            className="w-16 h-16"
-                        />
-                    </div>
-                    <p className="text-md font-bold group-hover:text-white">Enterprise</p>
-                    <p className="text-xs font-medium leading-5 text-customgrey group-hover:text-white">Rely on seasoned professionals for tailored SEO advice and strategic planning aligned with your unique goals</p>
+                    
+                    <p className="text-xl font-bold group-hover:text-white">Enterprise</p>
+                    <p className="text-xs font-medium leading-5 text-customgrey group-hover:text-white">
+                    <li className="text-md font-bold leading-5 text-customgrey group-hover:text-white mb-2">✓ Premium Keyword Research</li>
+                        <li className="font-bold  mb-2">✓ Content Ideas</li>
+                        <li className="font-bold  mb-2">✓ Content Generation</li>
+                        <li className="font-bold  mb-2">✓ Citation Suggestions</li>
+                        <li className="font-bold  mb-2">✓ Website Analytics</li>
+                    </p>
                     <div className="container flex w-full items-center justify-between">
-                        <p className="text-sm text-custompurple group-hover:text-white">VIEW MORE</p>
+                        <p className="text-md font-bold text-black group-hover:text-white">$123/month</p>
                         <img
                             src={IMAGES.arrowright}
                             alt="Your Alt Text"
@@ -115,7 +115,7 @@ const Paymenthome = () => {
             </div>
             
 
-            <div className="container flex flex-row max-w-6xl h-max mt-16 p-4">
+            <div id="section3" className="container flex flex-row max-w-6xl h-max mt-16 p-4">
                 <div className="container">
                     <div className="container bg-customlightblue rounded-sm rounded-tl-[30px] rounded-br-[30px] h-max shadow-custom1">
                         <img src={IMAGES.servicesimg} alt="COVER IMG" className="h-full w-full object-cover"/>
@@ -270,7 +270,7 @@ const Paymenthome = () => {
             </div>
 
 
-            <div className="container flex items-center h-max justify-between max-w-screen-lg bg-custom mt-32 py-14 px-14 rounded-md rounded-tl-[30px] rounded-br-[30px]">
+            <div id="section4"  className="container flex items-center h-max justify-between max-w-screen-lg bg-custom mt-32 py-14 px-14 rounded-md rounded-tl-[30px] rounded-br-[30px]">
                 <div className="container flex flex-col justify-between h-80 w-1/2 ">
                     <div className="container flex flex-row items-center justify-start pt-0">
                         <p className="text-md font-bold text-customlightgr">START NOW</p>                        
