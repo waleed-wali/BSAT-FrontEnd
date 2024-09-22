@@ -81,7 +81,7 @@ const Paymenthome = () => {
                         <li className="font-bold mb-2">✓ Content Ideas</li>
                         <li className="font-bold mb-2">✓ Content Generation</li>
                         <li className="font-bold mb-2">✓ Citation Suggestions</li>
-                        <li className="font-bold text-md text-gray-400 mb-2">✗ Website Analytics</li>
+                        <li className="font-bold  text-md text-gray-400 mb-2">✗ Website Analytics</li>
                     </p>
                     <div className="container flex w-full items-center justify-between">
                         <p className="text-md font-bold text-black group-hover:text-white">$123/month</p>
