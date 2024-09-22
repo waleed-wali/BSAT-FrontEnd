@@ -3,6 +3,7 @@ import InputField from '../components/Login/InputField';
 import CustomButton from '../components/Login/CustomButton';
 import { Link, useNavigate } from 'react-router-dom';
 import { IMAGES } from '../constants/images';
+import { login } from '../api/auth';
 
 function LoginPage() {
   const [email, setEmail] = useState("");
@@ -10,10 +11,17 @@ function LoginPage() {
 
   const navigate = useNavigate();
 
-  const handleLogin = () => {
+  const handleLogin = async() => {
     console.log("email: ", email);
     console.log("password: ", password);
-    navigate();
+    const response = await login(email, password);
+    console.log("response: ", response);
+    if(response.success){
+      navigate('/dashboard');
+  
+     na
+    }
+
   }
 
   return (

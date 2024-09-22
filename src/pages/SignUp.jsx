@@ -3,6 +3,7 @@ import InputField from '../components/Login/InputField';
 import CustomButton from '../components/Login/CustomButton';
 import { Link, useNavigate } from 'react-router-dom';
 import { IMAGES } from '../constants/images';
+import { signup } from '../api/auth';
 function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -10,12 +11,17 @@ function SignUp() {
 
   const navigate = useNavigate();
 
-  const handleSignUp = (e) => {
+  const handleSignUp =async (e) => {
     e.preventDefault(); // Prevent the form from submitting normally
     console.log("Attempting to create account with:", { email, password, fullName });
+    const response = await signup(email, fullName, password); // Simulating a successful account creation
+    console.log("response: ", response);
+    if(response.success){
+      navigate('/login');
+    }
     // Here, you would typically send this data to your server for processing
     // Assuming the account creation is successful:
-    navigate(); // Navigate to the home page or dashboard after account creation
+     // Navigate to the home page or dashboard after account creation
   };
 
   return (
