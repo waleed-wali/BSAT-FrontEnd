@@ -1,27 +1,29 @@
 import React, { useState } from 'react';
 import InputField from '../components/Login/InputField';
 import CustomButton from '../components/Login/CustomButton';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { IMAGES } from '../constants/images';
 import { signup } from '../api/auth';
+
 function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fullName, setFullName] = useState("");
-
+  
   const navigate = useNavigate();
+  const location = useLocation(); // Get the location state
+  const selectedPlan = location.state?.selectedPlan; // Extract the selected plan, if any
 
-  const handleSignUp =async (e) => {
-    e.preventDefault(); // Prevent the form from submitting normally
+  const handleSignUp = async (e) => {
+    e.preventDefault();
     console.log("Attempting to create account with:", { email, password, fullName });
-    const response = await signup(email, fullName, password); // Simulating a successful account creation
+    const response = await signup(email, fullName, password);
     console.log("response: ", response);
     if(response.success){
-      navigate('/login');
+      navigate('/paymentplans');
+  
+   
     }
-    // Here, you would typically send this data to your server for processing
-    // Assuming the account creation is successful:
-     // Navigate to the home page or dashboard after account creation
   };
 
   return (

@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-// import App from './App.jsx'
 import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import LoginPage from './pages/LoginPage.jsx'
@@ -8,11 +7,11 @@ import Layout from './layouts/Layout.jsx'
 import SignUp from './pages/SignUp.jsx'
 import ForgetPassword from './pages/ForgetPassword.jsx'
 import Dashboard from './pages/Dashboard.jsx'
-// import Homepage from './pages/Homepage.jsx'
 import Home from './pages/Home.jsx'
 import Admin from './pages/Admin.jsx'
 import Admindashboard from './pages/Admindashboard.jsx'
 import Paymenthome from './pages/Paymenthome.jsx'
+import PaymentPlans from './pages/PaymentPlans.jsx'
 
 const router = createBrowserRouter([ 
   {
@@ -23,7 +22,6 @@ const router = createBrowserRouter([
       {
         path:"/",
         element:<LoginPage/>
-        
       }
     ]
   },
@@ -43,7 +41,6 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element:<Dashboard/>
   },
-
   {
     path: "/Home",
     element:<Home/>
@@ -59,6 +56,10 @@ const router = createBrowserRouter([
   {
     path: "/Paymenthome",
     element:<Paymenthome/>
+  },
+  {
+    path: "/paymentplans", // Make sure this path exists for PaymentPlans
+    element:<PaymentPlans/>
   },
 ])
 

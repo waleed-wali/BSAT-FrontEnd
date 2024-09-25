@@ -17,9 +17,9 @@ function LoginPage() {
     const response = await login(email, password);
     console.log("response: ", response);
     if(response.success){
-      navigate('/dashboard');
+      navigate('/paymentplans');
   
-     na
+   
     }
 
   }
