@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import InputField from '../components/Login/InputField';
 import CustomButton from '../components/Login/CustomButton';
 import { Link, useNavigate } from 'react-router-dom';
-import { IMAGES } from '../constants/images';
-import { login } from '../api/auth';
+import { IMAGES } from '../constants/images.js';
+import { login } from '../API/auth.js';
 
 function LoginPage() {
   const [email, setEmail] = useState("");

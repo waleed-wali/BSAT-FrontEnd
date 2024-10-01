@@ -3,7 +3,7 @@ import InputField from '../components/Login/InputField';
 import CustomButton from '../components/Login/CustomButton';
 import { Link, useNavigate } from 'react-router-dom';
 import { IMAGES } from '../constants/images';
-import { signup } from '../api/auth';
+import { signup } from '../API/auth.js';
 function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
