@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IMAGES } from '../constants/images';
+import { activateUser, changeUserPassword, deactivateUser, getAllUsers, getProfile, saveUserData } from '../API/auth';
+import { toast } from 'react-toastify';
 
 function Admin() {
     const [profilePic, setProfilePic] = useState(IMAGES.profilePic);
@@ -12,10 +14,7 @@ function Admin() {
     const [newPassword, setNewPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 
-    const [users, setUsers] = useState([
-        { id: 1, firstName: "John", lastName: "Doe", email: "john@example.com", phone: "1234567890", role: "User", active: true },
-        { id: 2, firstName: "Jane", lastName: "Doe", email: "jane@example.com", phone: "0987654321", role: "Admin", active: false },
-    ]);
+    const [allUsers, setAllUsers] = useState([]);
 
     const handleProfilePicChange = (event) => {
         const file = event.target.files[0];
@@ -32,35 +31,95 @@ function Admin() {
         setProfilePic(IMAGES.defaultProfilePic); // Assuming you have a default profile picture
     };
 
-    const handleEditUser = (user) => {
-        setFirstName(user.firstName);
-        setLastName(user.lastName);
-        setEmail(user.email);
-        setPhone(user.phone);
-        setRole(user.role);
+    const handleActivateUser = async (userId) => {
+        const resp = await activateUser(userId);
+        toast.success("User Activated Successfully!");
+        setTimeout(() => {
+            window.location.reload();
+        }, 2000);
     };
 
-    const handleDeleteUser = (userId) => {
-        setUsers(users.filter(user => user.id !== userId));
+    const handleDeactivateUser = async (userId) => {
+        const resp = await deactivateUser(userId);
+        toast.success("User De-Activated Successfully!");
+        setTimeout(() => {
+            window.location.reload();
+        }, 2000);
+         console.log("resp is : ", resp);
     };
 
-    const handleActivateUser = (userId) => {
-        setUsers(users.map(user => user.id === userId ? { ...user, active: true } : user));
+
+    const handleGetAllUsers = async () => {
+        const data = await getAllUsers();
+        if (data.success) {
+            setAllUsers(data.users);
+        }
+    }
+
+    const handleCancelChange = () =>{
+        setEmail(profile.email);
+        setProfile(profile);
+        setFirstName(profile.name.split(" ")[0]);
+        setLastName(profile.name.split(" ")[1]);
+        setPhone(profile.phoneNumber);
+    }
+
+    const [profile, setProfile] = useState({});
+    useEffect(() => {
+        const fetchProfile = async () => {
+            const userprofile = await getProfile(); // Wait for profile data
+            if (userprofile) {
+                setEmail(userprofile.email);
+                setProfile(userprofile);
+                setFirstName(userprofile.name.split(" ")[0]);
+                setLastName(userprofile.name.split(" ")[1]);
+                setPhone(userprofile.phoneNumber);
+                setProfile(userprofile)
+            }
+        };
+
+        fetchProfile();
+        handleGetAllUsers();
+    }, []);
+
+    const saveProfile = async () => {
+        console.log("profile", profile);
+        const userData = {
+            id: profile._id,
+            // profile:profilePic,
+            name: `${firstName} ${lastName}`,
+            email,
+            phoneNumber: phone,
+        };
+        const res = await saveUserData(userData);
+        if(res.success){
+            toast.success("Profile updated Successfully!");
+        }
+        console.log(res);
     };
 
-    const handleDeactivateUser = (userId) => {
-        setUsers(users.map(user => user.id === userId ? { ...user, active: false } : user));
-    };
+    const changePassword = async () => {
+        const userData = {
+            password: newPassword,
+            oldPassword: currentPassword
+        };
+        const res = await changeUserPassword(userData);
+        if(res.success){
+            toast.success("Password changed successfully!");
+        }else{
+            toast.error(res.message);
+        }
 
-    const handleViewUser = (user) => {
-        alert(`Viewing user: ${user.firstName} ${user.lastName}`);
-    };
+        setNewPassword("");
+        setCurrentPassword("");
+        setConfirmPassword("");
+    }
 
     return (
-        
+
         <div className="bg-white p-8 overflow-auto h-full">
             <h2 className="text-2xl font-bold mb-4">Admin Management</h2>
-            <div className="flex items-center justify-between mb-4">
+            {/* <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center">
                     <img src={profilePic} alt="Admin Profile" className="h-24 w-24 rounded-full" />
                 </div>
@@ -73,7 +132,7 @@ function Admin() {
                         Delete Profile
                     </button>
                 </div>
-            </div>
+            </div> */}
             <hr className="my-6 border-gray-300" />
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <div>
@@ -92,34 +151,40 @@ function Admin() {
                     <label className="block text-gray-700">Phone Number</label>
                     <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone Number" className="w-full p-2 border border-gray-300 rounded mt-1" />
                 </div>
-                <div>
+                {/* <div>
                     <label className="block text-gray-700">Role</label>
                     <input type="text" value={role} onChange={(e) => setRole(e.target.value)} placeholder="Role" className="w-full p-2 border border-gray-300 rounded mt-1" />
-                </div>
-                <div>
-                    <label className="block text-gray-700">Current Password</label>
-                    <input type="password" value={currentPassword} onChange={(e) => setCurrentPassword(e.target.value)} placeholder="Current Password" className="w-full p-2 border border-gray-300 rounded mt-1" />
-                </div>
-                <div>
-                    <label className="block text-gray-700">New Password</label>
-                    <input type="password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} placeholder="New Password" className="w-full p-2 border border-gray-300 rounded mt-1" />
-                </div>
-                <div>
-                    <label className="block text-gray-700">Confirm Password</label>
-                    <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Confirm Password" className="w-full p-2 border border-gray-300 rounded mt-1" />
-                </div>
+                </div> */}
             </div>
             <div className="flex justify-end mt-4">
-                <button className="bg-gray-500 text-white py-2 px-4 rounded mr-2 hover:bg-gray-600 transition duration-200">Cancel</button>
-                <button className="bg-teal-600 text-white py-2 px-4 rounded hover:bg-teal-700 transition duration-200">Save Changes</button>
+                <button onClick={handleCancelChange} className="bg-gray-500 text-white py-2 px-4 rounded mr-2 hover:bg-gray-600 transition duration-200">Cancel</button>
+                <button onClick={saveProfile} className="bg-teal-600 text-white py-2 px-4 rounded hover:bg-teal-700 transition duration-200">Save Changes</button>
+            </div>
+            <div>
+                <div className='grid grid-cols-1 gap-6 sm:grid-cols-2'>
+                    <div>
+                        <label className="block text-gray-700">Current Password</label>
+                        <input type="password" value={currentPassword} onChange={(e) => setCurrentPassword(e.target.value)} placeholder="Current Password" className="w-full p-2 border border-gray-300 rounded mt-1" />
+                    </div>
+                    <div>
+                        <label className="block text-gray-700">New Password</label>
+                        <input type="password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} placeholder="New Password" className="w-full p-2 border border-gray-300 rounded mt-1" />
+                    </div>
+                    <div>
+                        <label className="block text-gray-700">Confirm Password</label>
+                        <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Confirm Password" className="w-full p-2 border border-gray-300 rounded mt-1" />
+                    </div>
+                </div>
+                <div className="flex justify-end mt-4">
+                    <button onClick={changePassword} className="bg-teal-600 text-white py-2 px-4 rounded hover:bg-teal-700 transition duration-200">Change Password</button>
+                </div>
             </div>
             <hr className="my-6 border-gray-300" />
             <h2 className="text-2xl font-bold mb-4">User Management</h2>
             <table className="w-full bg-white shadow-md rounded-lg">
                 <thead>
                     <tr className="bg-gray-200">
-                        <th className="py-2 px-4 text-left">First Name</th>
-                        <th className="py-2 px-4 text-left">Last Name</th>
+                        <th className="py-2 px-4 text-left">Name</th>
                         <th className="py-2 px-4 text-left">Email</th>
                         <th className="py-2 px-4 text-left">Phone</th>
                         <th className="py-2 px-4 text-left">Role</th>
@@ -128,20 +193,24 @@ function Admin() {
                     </tr>
                 </thead>
                 <tbody>
-                    {users.map(user => (
-                        <tr key={user.id}>
-                            <td className="py-2 px-4">{user.firstName}</td>
-                            <td className="py-2 px-4">{user.lastName}</td>
+                    {allUsers?.map(user => (
+                        <tr key={user._id}>
+                            <td className="py-2 px-4">{user.name}</td>
+                            {/* <td className="py-2 px-4">{user.lastName}</td> */}
                             <td className="py-2 px-4">{user.email}</td>
-                            <td className="py-2 px-4">{user.phone}</td>
+                            <td className="py-2 px-4">{user.phoneNumber}</td>
                             <td className="py-2 px-4">{user.role}</td>
-                            <td className="py-2 px-4">{user.active ? 'Active' : 'Inactive'}</td>
+                            <td className="py-2 px-4">{user.isActive == false ? 'Inactive' : 'Active'}</td>
                             <td className="py-2 px-4 text-right">
-                                <button onClick={() => handleViewUser(user)} className="text-blue-500 hover:text-blue-700 mr-2">View</button>
-                                <button onClick={() => handleEditUser(user)} className="text-yellow-500 hover:text-yellow-700 mr-2">Edit</button>
-                                <button onClick={() => handleActivateUser(user.id)} className="text-green-500 hover:text-green-700 mr-2">Activate</button>
-                                <button onClick={() => handleDeactivateUser(user.id)} className="text-red-500 hover:text-red-700 mr-2">Deactivate</button>
-                                <button onClick={() => handleDeleteUser(user.id)} className="text-red-500 hover:text-red-700">Delete</button>
+                                {/* <button onClick={() => handleViewUser(user)} className="text-blue-500 hover:text-blue-700 mr-2">View</button>
+                                <button onClick={() => handleEditUser(user)} className="text-yellow-500 hover:text-yellow-700 mr-2">Edit</button> */}
+                                {
+                                    user.isActive == false ?
+                                    <button onClick={() => handleActivateUser(user._id)} className="text-green-500 hover:text-green-700 mr-2">Activate</button>
+                                    :
+                                    <button onClick={() => handleDeactivateUser(user._id)} className="text-red-500 hover:text-red-700 mr-2">Deactivate</button>
+                                }
+                                {/* <button onClick={() => handleDeleteUser(user.id)} className="text-red-500 hover:text-red-700">Delete</button> */}
                             </td>
                         </tr>
                     ))}

@@ -7,6 +7,7 @@ const Paymenthome = () => {
 
     // Function to handle the navigation to the signup page
     const handlePlanSelect = () => {
+        localStorage.setItem("paymentplan", true);
         navigate('/signup'); // Navigate to the signup page
     };
 
@@ -44,13 +45,13 @@ const Paymenthome = () => {
                     <p className="text-xl font-bold group-hover:text-white">Intro</p>
                     <p className="text-xs font-medium leading-5 text-customgrey group-hover:text-white">
                         <li className="text-md font-bold leading-5 text-customgrey group-hover:text-white mb-2">✓ Keyword Research</li>
-                        <li className="font-bold text-gray-400  mb-2">✗ Content Ideas</li>
-                        <li className="font-bold text-gray-400 mb-2">✗ Content Generation</li>
-                        <li className="font-bold text-gray-400 mb-2">✗ Citation Suggestions</li>
-                        <li className="font-bold text-md text-gray-400 mb-2">✗ Website Analytics</li>
+                        <li className="text-md font-bold leading-5 text-customgrey group-hover:text-white mb-2">✓ Audit Report</li>
+                        <li className="font-bold text-gray-400 mb-2">✗ Article Writing</li>
+                        <li className="font-bold text-gray-400 mb-2">✗ Ads Generation</li>
+                        <li className="font-bold text-md text-gray-400 mb-2">✗ Competitors Analysis</li>
                     </p>
                     <div className="container flex w-full items-center justify-between">
-                        <p className="text-md font-bold text-black group-hover:text-white">$123/month</p>
+                        <p className="text-md font-bold text-black group-hover:text-white">$0/month</p>
                         <img
                             src={IMAGES.arrowright}
                             alt="Your Alt Text"
@@ -67,13 +68,13 @@ const Paymenthome = () => {
                     <p className="text-xl font-bold group-hover:text-white">Base</p>
                     <p className="text-xs font-medium leading-5 text-customgrey group-hover:text-white">
                         <li className="text-md font-bold leading-5 text-customgrey group-hover:text-white mb-2">✓ Keyword Research</li>
-                        <li className="font-bold mb-2">✓ Content Ideas</li>
-                        <li className="font-bold text-gray-400 mb-2">✗ Content Generation</li>
-                        <li className="font-bold text-gray-400 mb-2">✗ Citation Suggestions</li>
-                        <li className="font-bold text-md text-gray-400 mb-2">✗ Website Analytics</li>
+                        <li className="text-md font-bold leading-5 text-customgrey group-hover:text-white mb-2">✓ Audit Report</li>
+                        <li className="text-md font-bold leading-5 text-customgrey group-hover:text-white mb-2">✓ Article Writing</li>
+                        <li className="font-bold text-gray-400 mb-2">✗ Ads Generation</li>
+                        <li className="font-bold text-md text-gray-400 mb-2">✗ Competitors Analysis</li>
                     </p>
                     <div className="container flex w-full items-center justify-between">
-                        <p className="text-md font-bold text-black group-hover:text-white">$123/month</p>
+                        <p className="text-md font-bold text-black group-hover:text-white">$50/month</p>
                         <img
                             src={IMAGES.arrowright}
                             alt="Your Alt Text"
@@ -90,13 +91,13 @@ const Paymenthome = () => {
                     <p className="text-xl font-bold group-hover:text-white">Pro</p>
                     <p className="text-xs font-medium leading-5 text-customgrey group-hover:text-white">
                         <li className="text-md font-bold leading-5 text-customgrey group-hover:text-white mb-2">✓ Premium Keyword Research</li>
-                        <li className="font-bold mb-2">✓ Content Ideas</li>
-                        <li className="font-bold mb-2">✓ Content Generation</li>
-                        <li className="font-bold mb-2">✓ Citation Suggestions</li>
-                        <li className="font-bold  text-md text-gray-400 mb-2">✗ Website Analytics</li>
+                        <li className="font-bold mb-2">✓ Audit Report</li>
+                        <li className="font-bold mb-2">✓ Article Writing</li>
+                        <li className="font-bold mb-2">✓ Ads Generation</li>
+                        <li className="font-bold  text-md text-gray-400 mb-2">✗ Competitor Analysis</li>
                     </p>
                     <div className="container flex w-full items-center justify-between">
-                        <p className="text-md font-bold text-black group-hover:text-white">$123/month</p>
+                        <p className="text-md font-bold text-black group-hover:text-white">$80/month</p>
                         <img
                             src={IMAGES.arrowright}
                             alt="Your Alt Text"
@@ -113,13 +114,13 @@ const Paymenthome = () => {
                     <p className="text-xl font-bold group-hover:text-white">Enterprise</p>
                     <p className="text-xs font-medium leading-5 text-customgrey group-hover:text-white">
                         <li className="text-md font-bold leading-5 text-customgrey group-hover:text-white mb-2">✓ Premium Keyword Research</li>
-                        <li className="font-bold  mb-2">✓ Content Ideas</li>
-                        <li className="font-bold  mb-2">✓ Content Generation</li>
-                        <li className="font-bold  mb-2">✓ Citation Suggestions</li>
-                        <li className="font-bold  mb-2">✓ Website Analytics</li>
+                        <li className="font-bold  mb-2">✓ Audit Report</li>
+                        <li className="font-bold  mb-2">✓ Article Writing</li>
+                        <li className="font-bold  mb-2">✓ Ads Generation</li>
+                        <li className="font-bold  mb-2">✓ Competitor Analysis</li>
                     </p>
                     <div className="container flex w-full items-center justify-between">
-                        <p className="text-md font-bold text-black group-hover:text-white">$123/month</p>
+                        <p className="text-md font-bold text-black group-hover:text-white">$120/month</p>
                         <img
                             src={IMAGES.arrowright}
                             alt="Your Alt Text"

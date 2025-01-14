@@ -20,7 +20,7 @@ function SignUp() {
     const response = await signup(email, fullName, password);
     console.log("response: ", response);
     if(response.success){
-      navigate('/paymentplans');
+      navigate('/login');
   
    
     }
@@ -48,7 +48,7 @@ function SignUp() {
             <InputField placeholder="Password" onchangeText={setPassword} type="password" />
             <CustomButton title="Create an Account" />
           </form>
-          <div className="mt-4">
+          {/* <div className="mt-4">
             <button
               type="button"
               className="w-full p-2 bg-white text-teal-500 border border-teal-500 rounded hover:bg-gray-100 flex justify-center items-center"
@@ -56,7 +56,7 @@ function SignUp() {
               <img src={IMAGES.GLogo} alt="Google sign-in" className="h-6 w-6 mr-4" />
               Login with Google
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

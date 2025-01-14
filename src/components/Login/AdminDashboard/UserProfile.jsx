@@ -1,13 +1,82 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IMAGES } from '../../../constants/images';
+import { changeUserPassword, getProfile, saveUserData } from '../../../API/auth';
 
 function UserProfile() {
-  const [profilePic, setProfilePic] = useState(IMAGES.profilePic);
+  const [profilePic, setProfilePic] = useState(IMAGES?.profilePic);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [aboutMe, setAboutMe] = useState("");
   const [address, setAddress] = useState("");
+
+  const getUserProfile = async() =>{
+    console.log("inside func")
+    try {
+      let user = await getProfile();
+      console.log("user in s; ", user);
+    } catch (error) {
+      
+    }
+    }
+  useEffect(()=>{
+    getUserProfile();
+  },[])
+
+
+
+  
+  const [profile, setProfile] = useState({});
+  useEffect(() => {
+      const fetchProfile = async () => {
+          const userprofile = await getProfile(); // Wait for profile data
+          if (userprofile) {
+              setEmail(userprofile.email);
+              setProfile(userprofile);
+              setFirstName(userprofile.name.split(" ")[0]);
+              setLastName(userprofile.name.split(" ")[1]);
+              setPhone(userprofile.phoneNumber);
+              setProfile(userprofile)
+          }
+      };
+
+      fetchProfile();
+      handleGetAllUsers();
+  }, []);
+
+  const saveProfile = async () => {
+      console.log("profile", profile);
+      const userData = {
+          id: profile._id,
+          // profile:profilePic,
+          name: `${firstName} ${lastName}`,
+          email,
+          phoneNumber: phone,
+      };
+      const res = await saveUserData(userData);
+      if(res.success){
+          toast.success("Profile updated Successfully!");
+      }
+      console.log(res);
+  };
+
+  const changePassword = async () => {
+      const userData = {
+          password: newPassword,
+          oldPassword: currentPassword
+      };
+      const res = await changeUserPassword(userData);
+      if(res.success){
+          toast.success("Password changed successfully!");
+      }else{
+          toast.error(res.message);
+      }
+
+      setNewPassword("");
+      setCurrentPassword("");
+      setConfirmPassword("");
+  }
+
 
   const handleProfilePicChange = (event) => {
     const file = event.target.files[0];
@@ -23,6 +92,13 @@ function UserProfile() {
   const handleProfilePicDelete = () => {
     setProfilePic(IMAGES.defaultProfilePic);
   };
+
+  const handleChangeProfileData = async() =>{
+    let userData = {
+
+    }
+    const response =  await saveUserData();
+  }
 
   return (
     <div className="bg-white p-8 overflow-auto h-full">
@@ -52,7 +128,7 @@ function UserProfile() {
           <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder="Last Name" className="w-full p-2 border border-gray-300 rounded mt-1" />
         </div>
         <div>
-          <label className="block text-gray-700">Email Address</label>
+          <label className="block text-gray-700">Email Addre</label>
           <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email Address" className="w-full p-2 border border-gray-300 rounded mt-1" />
         </div>
         <div>

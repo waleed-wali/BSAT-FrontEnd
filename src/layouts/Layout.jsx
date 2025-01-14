@@ -1,9 +1,21 @@
-import React from 'react'
+import React from 'react';
+import Sidebar from '../components/Login/Dashboard/Sidebar'; // Import your Sidebar component
+import { Outlet } from 'react-router-dom';
 
 const Layout = () => {
   return (
-    <div>Layout</div>
-  )
-}
+    <div className="flex h-screen">
+      {/* Sidebar fixed on the left */}
+      <div className="fixed top-0 left-0 h-full w-64">
+        <Sidebar />
+      </div>
 
-export default Layout
+      {/* Main content area on the right, scrollable */}
+      <div className="ml-64 flex-1 bg-gray-100 overflow-y-auto p-4">
+        <Outlet />
+      </div>
+    </div>
+  );
+};
+
+export default Layout;

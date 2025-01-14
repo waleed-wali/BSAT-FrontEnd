@@ -10,7 +10,7 @@ import {
   import Spinner from "react-spinner-material";
   
   const stripePromise = loadStripe(
-    "pk_test_51Q1gsfGf9kkOeJlI7RcVfJJoVOjMKUTQKX5ktBwBc67U5oSPooYSvcuLsGFMaLUo1GyzGbEIdoFAruBns7eHeFL4006g5Cp0Eu"
+    "pk_test_51Q2M4ZEYfaSqGpmeBOv0WaXe2eMRyWzjTUm685Dn0KifCieCNdChGW1yLfsatDe7dD9NUA4oy3zBNJNTm7i8HOCk00xX9wx3YF"
   );
   
   const CheckoutForm = ({ clientSecret }) => {
@@ -62,7 +62,7 @@ import {
       const { error } = await stripe.confirmPayment({
         elements,
         confirmParams: {
-          return_url: "http://localhost:5173/login",
+          return_url: "http://localhost:5173/confirm-screen",
         },
       });
   

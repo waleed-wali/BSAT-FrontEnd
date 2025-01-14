@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PaymentComponent from '../components/PaymentComponent';
+import { PaymentPlansComponent } from '../components/Global/PaymentPlansComponent';
 
 const PaymentPlans = ({ }) => {
     const navigate = useNavigate();
@@ -9,6 +10,7 @@ const PaymentPlans = ({ }) => {
 
     // Function to handle "Get Started" button clicks
     const handlePlanSelection = (plan) => {
+        localStorage.setItem("paymentplan", false);
         console.log(`Selected plan: ${plan}`);
         if (plan == "Intro") {
             setPlanPrice(50);
@@ -34,8 +36,7 @@ const PaymentPlans = ({ }) => {
                 </p>
             </div>
 
-            <div className="flex justify-around mt-10 w-full">
-                {/* Plan 1 - Intro */}
+            {/* <div className="flex justify-around mt-10 w-full">
                 <div className="bg-white shadow-md p-5 rounded-lg">
                     <h2 className="font-bold text-xl">Intro</h2>
                     <ul className="mt-4">
@@ -54,7 +55,6 @@ const PaymentPlans = ({ }) => {
                     </button>
                 </div>
 
-                {/* Plan 2 - Base */}
                 <div className="bg-white shadow-md p-5 rounded-lg">
                     <h2 className="font-bold text-xl">Base</h2>
                     <ul className="mt-4">
@@ -73,7 +73,6 @@ const PaymentPlans = ({ }) => {
                     </button>
                 </div>
 
-                {/* Plan 3 - Pro */}
                 <div className="bg-white shadow-md p-5 rounded-lg">
                     <h2 className="font-bold text-xl">Pro</h2>
                     <ul className="mt-4">
@@ -92,7 +91,6 @@ const PaymentPlans = ({ }) => {
                     </button>
                 </div>
 
-                {/* Plan 4 - Enterprise */}
                 <div className="bg-white shadow-md p-5 rounded-lg">
                     <h2 className="font-bold text-xl">Enterprise</h2>
                     <ul className="mt-4">
@@ -110,7 +108,9 @@ const PaymentPlans = ({ }) => {
                         Get Started
                     </button>
                 </div>
-            </div>
+            </div> */}
+
+            <PaymentPlansComponent handlePlanSelection={handlePlanSelection} admin={false} />
 
             <div>
                 {showstripe &&

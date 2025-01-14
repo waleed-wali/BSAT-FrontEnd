@@ -17,7 +17,11 @@ function LoginPage() {
     const response = await login(email, password);
     console.log("response: ", response);
     if(response.success){
-      navigate('/paymentplans');
+      console.log(response.data)
+      localStorage.setItem('userData',JSON.stringify(response))
+      const paymentPlan = JSON.parse(localStorage.getItem('paymentplan'));
+      paymentPlan === true ? navigate('/paymentplans') : navigate('/ddashboard');
+      
   
    
     }
@@ -55,7 +59,7 @@ function LoginPage() {
             </div>
             <CustomButton title={"Proceed"} handleClick={handleLogin} />
           </form>
-          <div className="mt-4">
+          {/* <div className="mt-4">
             <button
               type="button"
               className="w-full p-2 bg-white text-teal-500 border border-teal-500 rounded hover:bg-gray-100 flex justify-center items-center"
@@ -63,7 +67,7 @@ function LoginPage() {
               <img src={IMAGES.GLogo} alt="Google sign-in" className="h-6 w-6 mr-4" />
               Login with Google
             </button>
-          </div>
+          </div> */}
           <p className="mt-6 text-xs text-center text-gray-400">© 2021 - 2024 All Rights Reserved. Company</p>
         </div>
       </div>

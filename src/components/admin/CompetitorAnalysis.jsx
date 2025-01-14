@@ -37,7 +37,7 @@ const CompetitorAnalysis = () => {
   
 
   return (
-    <div className="bg-white p-8 rounded-lg shadow-md w-full h-full">
+    <div className="bg-white p-10 rounded-lg shadow-md w-full h-full">
       <div className="border-b pb-4 mb-4">
         <h2 className="text-xl font-semibold">Dashboard &gt; Competitor Analysis</h2>
       </div>
