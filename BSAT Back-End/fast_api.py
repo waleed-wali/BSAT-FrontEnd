@@ -5,7 +5,7 @@ import tempfile
 import os
 
 from QualityScaler import AI
-
+ 
 app = Flask(__name__)
 
 # Assuming 'AI' class has been defined in the same script or imported appropriately
