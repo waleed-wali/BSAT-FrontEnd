@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { IMAGES } from '../constants/images';
 import { activateUser, changeUserPassword, deactivateUser, getAllUsers, getProfile, saveUserData } from '../API/auth';
 import { toast } from 'react-toastify';
- 
+      
 function Admin() {
     const [profilePic, setProfilePic] = useState(IMAGES.profilePic);
     const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
+    const [lastName, setLastName] = useState(""); 
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [role, setRole] = useState("");
